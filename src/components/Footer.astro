@@ -1,0 +1,249 @@
+---
+// north. — Footer Component
+---
+
+<footer id="fechamento" class="footer section-dark" aria-label="Rodapé institucional">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Coluna 1: Marca & Síntese -->
+      <div class="footer-col brand-col">
+        <a href="/" class="footer-logo" aria-label="north. Home">
+          <span class="logo-text">north<span class="dot-wine">.</span></span>
+        </a>
+        <p class="footer-desc">
+          Escola de inglês para executivos, líderes e adultos que precisam conduzir reuniões, negociações e apresentações com a mesma clareza do português.
+        </p>
+        <div class="footer-social">
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+          <span class="sep">/</span>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link">Instagram</a>
+          <span class="sep">/</span>
+          <a href="mailto:contato@north.com.br" class="social-link">contato@north.com.br</a>
+        </div>
+      </div>
+
+      <!-- Coluna 2: Programas -->
+      <div class="footer-col">
+        <h4 class="col-title mono">Programas</h4>
+        <ul class="col-links">
+          <li><a href="/cursos#lideranca">Liderança & Conselhos</a></li>
+          <li><a href="/cursos#negocios">Negócios & Negociação</a></li>
+          <li><a href="/cursos#entrevistas">Entrevistas Internacionais</a></li>
+          <li><a href="/cursos#apresentacoes">Apresentações & Keynotes</a></li>
+          <li><a href="/cursos#viagens">Viagens & Presença Global</a></li>
+          <li><a href="/empresas">Treinamento Corporativo (B2B)</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 3: Institucional -->
+      <div class="footer-col">
+        <h4 class="col-title mono">Institucional</h4>
+        <ul class="col-links">
+          <li><a href="/sobre">Sobre a north.</a></li>
+          <li><a href="/metodologia">Nossa Metodologia</a></li>
+          <li><a href="/empresas">Para Empresas</a></li>
+          <li><a href="/professores">Nossos Professores</a></li>
+          <li><a href="/contato">Diagnóstico Profissional</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 4: Newsletter Editorial -->
+      <div class="footer-col newsletter-col">
+        <h4 class="col-title mono">Briefing north.</h4>
+        <p class="newsletter-desc">
+          Análises quinzenais sobre comunicação corporativa internacional, vocabulário de conselhos e casos reais de negociação em inglês.
+        </p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Inscrição confirmada no Briefing north.'); this.reset();">
+          <div class="input-group">
+            <input type="email" placeholder="seu@email-corporativo.com" required class="newsletter-input" aria-label="E-mail profissional para newsletter" />
+            <button type="submit" class="btn btn-primary newsletter-btn" aria-label="Assinar newsletter">
+              →
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="bottom-legal">
+        <span>© {new Date().getFullYear()} north. Todos os direitos reservados.</span>
+        <span class="sep">·</span>
+        <a href="#">Política de Privacidade</a>
+        <span class="sep">·</span>
+        <a href="#">Termos de Uso</a>
+      </div>
+      <div class="bottom-origin mono">
+        <span>São Paulo · Presencial & Global Online</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-12);
+    border-top: 1px solid var(--color-border-dark-subtle);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    margin-bottom: var(--space-16);
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1.2fr 1.2fr 1.6fr;
+      gap: var(--space-10);
+    }
+  }
+
+  .brand-col .logo-text {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.75rem;
+    letter-spacing: -0.04em;
+    color: var(--color-text-light);
+  }
+
+  .footer-desc {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--color-text-light-muted);
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-6);
+    max-width: 360px;
+  }
+
+  .footer-social {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: 0.8125rem;
+  }
+
+  .social-link {
+    color: var(--color-text-light-body);
+    text-decoration: none;
+    transition: color var(--motion-fast);
+  }
+
+  .social-link:hover {
+    color: var(--color-wine-light);
+  }
+
+  .sep {
+    color: var(--color-text-light-muted);
+    opacity: 0.4;
+  }
+
+  .col-title {
+    color: var(--color-wine-light);
+    font-size: 0.75rem;
+    margin-bottom: var(--space-5);
+  }
+
+  .col-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .col-links a {
+    font-size: 0.9375rem;
+    color: var(--color-text-light-muted);
+    transition: color var(--motion-fast);
+  }
+
+  .col-links a:hover {
+    color: var(--color-text-light);
+  }
+
+  .newsletter-desc {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-text-light-muted);
+    margin-bottom: var(--space-4);
+  }
+
+  .input-group {
+    display: flex;
+    border: 1px solid var(--color-border-dark-subtle);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.03);
+    transition: border-color var(--motion-fast);
+  }
+
+  .input-group:focus-within {
+    border-color: var(--color-wine);
+  }
+
+  .newsletter-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 12px 14px;
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+    font-family: var(--font-sans);
+    outline: none;
+  }
+
+  .newsletter-input::placeholder {
+    color: var(--color-text-light-muted);
+    opacity: 0.6;
+  }
+
+  .newsletter-btn {
+    border-radius: 0;
+    padding: 0 18px;
+    font-size: 1.125rem;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border-dark-subtle);
+    font-size: 0.8125rem;
+    color: var(--color-text-light-muted);
+  }
+
+  @media (min-width: 768px) {
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .bottom-legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    align-items: center;
+  }
+
+  .bottom-legal a {
+    color: var(--color-text-light-muted);
+  }
+
+  .bottom-legal a:hover {
+    color: var(--color-text-light);
+  }
+
+  .bottom-origin {
+    opacity: 0.8;
+  }
+</style>

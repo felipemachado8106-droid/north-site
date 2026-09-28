@@ -1,0 +1,249 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const faqs = [
+  {
+    pergunta: 'Como funciona a conversa de diagnóstico?',
+    resposta: 'É uma sessão de 20 minutos realizada por chamada de vídeo com um coordenador pedagógico. Conversamos em português e em inglês para identificar em quais situações reais de trabalho você sente insegurança, mapear o vocabulário do seu setor e indicar a frequência e o mentor mais adequados. Não há pressão comercial nem teste de nivelamento escolar.'
+  },
+  {
+    pergunta: 'As sessões são online ou presenciais?',
+    resposta: 'A maior parte dos nossos alunos opta pelo formato 100% online (via Google Meet corporativo em alta resolução), ideal para acomodar viagens constantes de trabalho. Também oferecemos a modalidade presencial em nosso espaço executivo no Itaim Bibi, em São Paulo, mediante disponibilidade de agenda.'
+  },
+  {
+    pergunta: 'Como funciona a flexibilidade de horários se eu tiver uma viagem de trabalho?',
+    resposta: 'Entendemos a volatilidade da rotina executiva. Nossos alunos podem reagendar sessões com aviso prévio de até 12 horas úteis, sem perda da carga horária contratada, remarcando a sessão para outro dia da semana ou acumulando para o ciclo seguinte.'
+  },
+  {
+    pergunta: 'Minha empresa pode pagar o curso ou fornecer reembolso?',
+    resposta: 'Sim. Grande parte dos nossos alunos executivos utiliza orçamento de desenvolvimento corporativo (L&D/RH) da própria empresa. Emitimos Nota Fiscal de serviços de treinamento corporativo para PJ e fornecemos relatórios mensais de frequência e evolução exigidos por departamentos de compliance e recursos humanos.'
+  },
+  {
+    pergunta: 'Em quanto tempo começo a notar diferença nas minhas reuniões?',
+    resposta: 'Como o treinamento trabalha diretamente sobre os seus slides e as reuniões que você terá na mesma semana, a percepção de alívio e segurança ao falar costuma ser imediata nas primeiras quatro semanas. A autonomia completa para conduzir negociações complexas e apresentações consolida-se geralmente entre três e seis meses de trabalho contínuo.'
+  }
+];
+---
+
+<BaseLayout
+  title="Contato e Diagnóstico — north. Escola de Inglês"
+  description="Agende sua conversa diagnóstica de 20 minutos com a equipe da north. Entenda como o método pode resolver seu inglês no trabalho."
+>
+
+  <!-- Hero Header -->
+  <section class="section section-dark page-hero">
+    <div class="container container-narrow">
+      <span class="section-tag light reveal">Atendimento & Diagnóstico</span>
+      <h1 class="page-title serif reveal">
+        Agende uma conversa direta com nossa coordenação<span class="dot-wine">.</span>
+      </h1>
+      <p class="page-lead reveal">
+        Sem robôs, sem ligações insistentes. Preencha o formulário para agendarmos 20 minutos de conversa com foco exclusivo nas suas demandas práticas de trabalho.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 01: Formulário & Informações -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="contato-layout">
+        <!-- Coluna Formulário -->
+        <div class="contato-form-col reveal">
+          <ContactForm
+            title="Solicitar Diagnóstico Individual"
+            subtitle="Preencha os campos abaixo para que nossa coordenação entre em contato com opções de horários."
+          />
+        </div>
+
+        <!-- Coluna Informações e FAQ -->
+        <div class="contato-info-col reveal">
+          <div class="info-card">
+            <h3 class="info-title serif">Canais Oficiais</h3>
+            
+            <div class="info-item">
+              <span class="info-label mono wine">E-mail Corporativo</span>
+              <a href="mailto:contato@north.com.br" class="info-val">contato@north.com.br</a>
+            </div>
+
+            <div class="info-item">
+              <span class="info-label mono wine">Tempo Médio de Resposta</span>
+              <span class="info-val">Até 24 horas úteis por e-mail ou WhatsApp</span>
+            </div>
+
+            <div class="info-item">
+              <span class="info-label mono wine">Espaço Presencial</span>
+              <span class="info-val">Itaim Bibi · São Paulo / SP</span>
+              <span class="info-sub">Atendimento presencial mediante agendamento prévio</span>
+            </div>
+          </div>
+
+          <!-- FAQ Interativo -->
+          <div class="faq-container">
+            <h3 class="faq-heading serif">Dúvidas Frequentes</h3>
+            
+            <div class="faq-list">
+              {faqs.map((faq, index) => (
+                <div class={`faq-item ${index === 0 ? 'active' : ''}`}>
+                  <button class="faq-question" type="button" aria-expanded={index === 0 ? 'true' : 'false'}>
+                    <span class="faq-q-text">{faq.pergunta}</span>
+                    <span class="faq-icon">+</span>
+                  </button>
+                  <div class="faq-answer">
+                    <p>{faq.resposta}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+    border-bottom: 1px solid var(--color-border-dark-subtle);
+  }
+
+  .page-title {
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    color: var(--color-text-light);
+    line-height: 1.1;
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .page-lead {
+    font-size: 1.25rem;
+    line-height: 1.65;
+    color: var(--color-text-light-body);
+  }
+
+  /* Layout 2 Colunas */
+  .contato-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  @media (min-width: 1024px) {
+    .contato-layout {
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: var(--space-16);
+    }
+  }
+
+  /* Info Card */
+  .info-card {
+    background-color: var(--color-surface-pure);
+    border: 1px solid var(--color-border);
+    padding: var(--space-8);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-10);
+  }
+
+  .info-title {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-4);
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: var(--space-5);
+  }
+
+  .info-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+  }
+
+  .info-val {
+    font-size: 1rem;
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .info-sub {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  /* FAQ Accordion */
+  .faq-heading {
+    font-size: 1.75rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-6);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .faq-item {
+    background-color: var(--color-surface-pure);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    transition: border-color var(--motion-fast);
+  }
+
+  .faq-item.active {
+    border-color: var(--color-wine-border);
+  }
+
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    padding: var(--space-5) var(--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .faq-icon {
+    font-size: 1.25rem;
+    color: var(--color-wine);
+    font-weight: 400;
+    transition: transform var(--motion-fast);
+  }
+
+  .faq-item.active .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    display: none;
+    padding: 0 var(--space-6) var(--space-6);
+    font-size: 0.875rem;
+    line-height: 1.68;
+    color: var(--color-text-body);
+  }
+
+  .faq-item.active .faq-answer {
+    display: block;
+  }
+</style>

@@ -1,0 +1,599 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const cursos = [
+  {
+    id: 'lideranca',
+    num: '01',
+    titulo: 'Inglês para Liderança & Governança',
+    publico: 'C-Level, Diretores, VPs e Membros de Conselho',
+    objetivo: 'Conduzir comitês de governança, reuniões com a matriz e alinhamentos estratégicos sem hesitação.',
+    foco: [
+      'Alinhamento de expectativas e sustentação de metas corporativas com matrizes no exterior.',
+      'Defesa de orçamentos, planos de reestruturação e decisões de alto impacto.',
+      'Vocabulário executivo para lidar com crises de imagem, riscos e compliance.',
+      'Simulação de reuniões de conselho com perguntas duras e prazos curtos para resposta.'
+    ],
+    formato: 'Sessões individuais de 60 minutos · 2x por semana · Acompanhamento quinzenal com coordenação',
+    imagem: '/img/Imagens/Man_explaining_governance_strate._20260914102032.webp',
+    alt: 'Executivo conduzindo comitê de governança e alinhamento com a matriz'
+  },
+  {
+    id: 'negocios',
+    num: '02',
+    titulo: 'Negócios, Vendas B2B & Negociação',
+    publico: 'Gerentes Comerciais, Sócios, Heads de Expansão e M&A',
+    objetivo: 'Fechar acordos comerciais, discutir minutas de contrato e defender propostas de valor diretamente.',
+    foco: [
+      'Construção de propostas de valor e argumentação comparativa frente a concorrentes globais.',
+      'Negociação de prazos, escopos de entrega, cláusulas de rescisão e taxas de serviço.',
+      'Redação de e-mails corporativos formais e informais com adequação precisa de tom.',
+      'Condução de calls com tomadores de decisão em mercados americanos e europeus.'
+    ],
+    formato: 'Sessões individuais de 45 ou 60 minutos · Foco em casos reais do pipeline comercial',
+    imagem: '/img/Imagens/Business_leaders_shaking_hands_20260914102032.webp',
+    alt: 'Líderes de negócios fechando acordo comercial e contratual internacional'
+  },
+  {
+    id: 'entrevistas',
+    num: '03',
+    titulo: 'Preparação para Entrevistas Internacionais',
+    publico: 'Profissionais em transição para empresas multinacionais ou posições remotas no exterior',
+    objetivo: 'Articular sua trajetória técnica com clareza, responder a behavioral questions e negociar remuneração.',
+    foco: [
+      'Estruturação da narrativa de carreira (elevator pitch e trajetória executiva).',
+      'Treinamento intensivo no método STAR (Situation, Task, Action, Result) para perguntas comportamentais.',
+      'Resolução de cases de negócio ao vivo em inglês sem depender de anotações.',
+      'Simulação de entrevistas com feedback pontual sobre vocabulário e postura.'
+    ],
+    formato: 'Módulo intensivo de 8 a 12 semanas · Revisão de LinkedIn e currículo em inglês inclusa',
+    imagem: '/img/Imagens/Corporate_professionals_rehearsi._20260914102032.webp',
+    alt: 'Simulação intensiva de entrevista executiva internacional'
+  },
+  {
+    id: 'apresentacoes',
+    num: '04',
+    titulo: 'Apresentações Técnicas & Keynotes',
+    publico: 'Especialistas técnicos, Product Managers, Engenheiros e Palestrantes',
+    objetivo: 'Apresentar dados complexos de forma clara e dominar a sessão de perguntas e respostas da plateia.',
+    foco: [
+      'Ensaios de apresentação com os próprios slides que você usará no trabalho ou conferência.',
+      'Técnicas de transição suave entre temas e explicação de gráficos e dados complexos.',
+      'Domínio da sessão de Q&A (perguntas da plateia) sob tempo limitado.',
+      'Ajustes de ritmo, ênfase vocal e redução de vícios de linguagem ("hum", "like", "you know").'
+    ],
+    formato: 'Sessões individuais com gravação em vídeo opcional para autoanálise guiada',
+    imagem: '/img/Imagens/Director_presenting_on_stage_20260914102032.webp',
+    alt: 'Apresentação técnica e keynote corporativo no palco'
+  },
+  {
+    id: 'viagens',
+    num: '05',
+    titulo: 'Viagens Profissionais & Presença Global',
+    publico: 'Executivos que viajam frequentemente a trabalho e participam de conferências',
+    objetivo: 'Transitar com segurança em jantares de negócios, recepções e networking espontâneo.',
+    foco: [
+      'Small talk profissional: abertura de conversas, etiqueta social e referências culturais.',
+      'Vocabulário para restaurantes, conexões de aeroporto, reservas e imprevistos de viagem.',
+      'Participação ativa em mesas-redondas e conversas de corredor em congressos internacionais.',
+      'Segurança para estabelecer laços duradouros de relacionamento comercial além do escritório.'
+    ],
+    formato: 'Sessões modulares de 45 minutos com cenários práticos de simulação social',
+    imagem: '/img/Imagens/Men_laughing_at_cocktail_table_20260914102032.webp',
+    alt: 'Networking espontâneo em conferência e coquetel de negócios internacional'
+  },
+  {
+    id: 'avancado',
+    num: '06',
+    titulo: 'Conversação Avançada & Manutenção',
+    publico: 'Profissionais que já possuem base avançada mas não usam o idioma com frequência no dia a dia',
+    objetivo: 'Manter a velocidade de resposta afiada, eliminar hesitações e enriquecer o vocabulário.',
+    foco: [
+      'Debates semanais sobre economia global, geopolítica, tendências de mercado e tecnologia.',
+      'Leitura e análise crítica de relatórios e publicações internacionais (The Economist, FT, Harvard Business Review).',
+      'Refinamento de expressões idiomáticas de negócios e nuances linguísticas contemporâneas.',
+      'Manutenção contínua do reflexo espontâneo no idioma sem perda de ritmo.'
+    ],
+    formato: 'Sessões individuais semanais focadas em debate de alto nível e agilidade de raciocínio',
+    imagem: '/img/Imagens/Colleagues_having_a_conversation_20260914102032.webp',
+    alt: 'Debate estratégico de alta velocidade e raciocínio direto em inglês'
+  }
+];
+---
+
+<BaseLayout
+  title="Cursos e Jornadas north. — Escola de Inglês para Profissionais"
+  description="Conheça nossos programas estruturados: Liderança, Negócios B2B, Entrevistas Internacionais, Apresentações e Presença Global."
+>
+
+  <!-- Hero Header -->
+  <section class="hero-section section-dark">
+    <div class="hero-content-layer">
+      <div class="hero-main-text">
+        <div class="hero-badge reveal">
+          <span class="badge-icon">✦</span>
+          <span class="mono">CURSOS & JORNADAS</span>
+        </div>
+
+        <h1 class="hero-title serif reveal">
+          Jornadas construídas para necessidades reais de carreira<span class="dot-wine">.</span>
+        </h1>
+
+        <p class="hero-lead reveal">
+          Não dividimos nossos alunos em séries escolares ou níveis abstratos. Oferecemos jornadas direcionadas ao desafio específico que você precisa resolver hoje no seu trabalho.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a href="#diagnostico" class="hero-btn-pill hero-btn-primary">
+            <span>Iniciar Diagnóstico Profissional</span>
+          </a>
+          <a href="/metodologia" class="hero-btn-pill hero-btn-glass">
+            <span>Entenda a Metodologia</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-footer-cards reveal">
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">1:1</strong>
+            <span>Atendimento individual e estratégico</span>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">Setor</strong>
+            <span>Conteúdo alinhado ao seu mercado</span>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">Prática</strong>
+            <span>Reuniões, conversas e casos reais</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid de Cursos -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Programas Oficiais</span>
+        <h2 class="section-title serif">Escolha o foco do seu treinamento</h2>
+        <p class="section-subtitle">
+          Cada jornada pode ser combinada ou ajustada individualmente após a sessão de diagnóstico com nossos coordenadores.
+        </p>
+      </div>
+
+      <div class="cursos-grid">
+        {cursos.map((curso) => (
+          <article id={curso.id} class="curso-card reveal">
+            <div class="curso-media">
+              <img
+                src={curso.imagem}
+                alt={curso.alt}
+                class="curso-img"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="curso-content">
+              <div class="curso-header">
+                <span class="curso-num mono wine">{curso.num}</span>
+                <span class="curso-target mono">{curso.publico}</span>
+              </div>
+
+              <h3 class="curso-title serif">{curso.titulo}</h3>
+              <p class="curso-obj"><strong>Objetivo:</strong> {curso.objetivo}</p>
+
+              <div class="divider" style="margin: var(--space-6) 0;"></div>
+
+              <h4 class="foco-heading mono">O Que é Trabalhado:</h4>
+              <ul class="curso-foco-list">
+                {curso.foco.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+
+              <div class="curso-footer">
+                <div class="curso-formato">
+                  <span class="formato-label mono">Formato:</span>
+                  <span class="formato-text">{curso.formato}</span>
+                </div>
+                <a href="#diagnostico" class="btn btn-secondary btn-full">
+                  Mapear Esta Jornada
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Trilha Sob Medida -->
+      <div class="custom-track-card reveal">
+        <div class="custom-track-content">
+          <span class="section-tag">Trilha Customizada</span>
+          <h3 class="custom-title serif">Sua necessidade não se encaixa exatamente nas jornadas acima?</h3>
+          <p class="custom-desc">
+            Construímos trilhas 100% desenhadas para cenários específicos: preparação para MBA no exterior, defesa de tese, transição de setor ou treinamento conjunto para comitês executivos.
+          </p>
+        </div>
+        <div class="custom-track-action">
+          <a href="/contato" class="btn btn-primary">Fale com nossa Coordenação</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;
+    background-color: #0c0a0b;
+    background-image:
+      linear-gradient(90deg, rgba(12, 10, 11, 0.98) 0%, rgba(12, 10, 11, 0.85) 24%, rgba(12, 10, 11, 0.52) 42%, rgba(12, 10, 11, 0.18) 64%, rgba(12, 10, 11, 0.08) 100%),
+      url('/img/Imagens/Two_executives_walking_in_atrium_20260914102032_2.webp');
+    background-size: cover;
+    background-position: 60% center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    filter: saturate(1.05) contrast(1.04);
+  }
+
+  .hero-content-layer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    margin-inline: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding-top: calc(80px + 3rem);
+    padding-bottom: 3.5rem;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .hero-content-layer {
+      padding-left: 60px;
+      padding-right: 60px;
+      padding-bottom: 4rem;
+    }
+  }
+
+  .hero-main-text {
+    max-width: 780px;
+    margin-top: auto;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f7f6f5;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 6px 14px;
+    border-radius: 0;
+    margin-bottom: 1.75rem;
+  }
+
+  .badge-icon {
+    color: #d19a9e;
+    font-size: 0.875rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.35rem, 4.2vw, 3.9rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    text-wrap: balance;
+  }
+
+  .hero-lead {
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 2.25rem;
+    max-width: 560px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 12px 18px 12px 22px;
+    border-radius: 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .hero-btn-primary {
+    background-color: var(--color-wine, #722f37);
+    color: #ffffff;
+    border: 1px solid var(--color-wine, #722f37);
+  }
+
+  .hero-btn-primary:hover {
+    background-color: #5b242b;
+    transform: translateY(-1px);
+  }
+
+  .hero-btn-glass {
+    background: rgba(255, 255, 255, 0.06);
+    color: #f7f6f5;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .hero-btn-glass:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .hero-footer-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: auto;
+  }
+
+  .glass-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 12px 18px;
+    border-radius: 0;
+  }
+
+  .glass-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 0;
+    background: rgba(209, 154, 158, 0.15);
+    color: #d19a9e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+  }
+
+  .glass-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .glass-text strong {
+    font-size: 0.875rem;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .glass-text span {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* Grid de Cursos */
+  .cursos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    margin-bottom: var(--space-16);
+  }
+
+  @media (min-width: 992px) {
+    .cursos-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .curso-card {
+    background-color: var(--color-surface-pure);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border-color var(--motion-base), box-shadow var(--motion-base);
+  }
+
+  @media (min-width: 768px) {
+    .curso-card {
+      padding: var(--space-10);
+    }
+  }
+
+  .curso-card:hover {
+    border-color: var(--color-wine-border);
+    box-shadow: 0 10px 30px rgba(136, 12, 36, 0.04);
+  }
+
+  .curso-media {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-6);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface-alt);
+  }
+
+  .curso-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--motion-slow);
+  }
+
+  .curso-card:hover .curso-img {
+    transform: scale(1.03);
+  }
+
+  .curso-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+
+  .curso-num {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .curso-target {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    text-align: right;
+  }
+
+  .curso-title {
+    font-size: 1.75rem;
+    color: var(--color-primary);
+    line-height: 1.2;
+    margin-bottom: var(--space-3);
+  }
+
+  .curso-obj {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-body);
+  }
+
+  .foco-heading {
+    font-size: 0.6875rem;
+    color: var(--color-wine);
+    margin-bottom: var(--space-4);
+    display: block;
+    letter-spacing: 0.06em;
+  }
+
+  .curso-foco-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-8);
+  }
+
+  .curso-foco-list li {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--color-text-body);
+    padding-left: var(--space-5);
+    position: relative;
+  }
+
+  .curso-foco-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-wine);
+  }
+
+  .curso-footer {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .curso-formato {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+  }
+
+  .curso-cta {
+    width: 100%;
+    text-align: center;
+    font-size: 0.875rem;
+    padding: 12px 20px;
+  }
+
+  /* Custom Track Card */
+  .custom-track-card {
+    background-color: var(--color-surface-card-dark);
+    color: var(--color-text-light);
+    border: 1px solid var(--color-border-dark-subtle);
+    padding: var(--space-10);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 992px) {
+    .custom-track-card {
+      flex-direction: row;
+      align-items: center;
+      padding: var(--space-12);
+    }
+  }
+
+  .custom-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: var(--color-text-light);
+    margin: var(--space-3) 0;
+  }
+
+  .custom-desc {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--color-text-light-body);
+    max-width: 680px;
+  }
+</style>

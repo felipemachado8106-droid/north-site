@@ -1,0 +1,858 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const situacoes = [
+  {
+    num: '01',
+    titulo: 'A call global semanal',
+    texto: 'A reunião com a equipe internacional acontece toda terça-feira. Você entende os tópicos e acompanha os números, mas quando a conversa acelera e as decisões são disputadas na hora, você prefere ficar no mudo. Não por falta de conhecimento técnico, mas porque formular a frase em português e traduzi-la consome os segundos exatos em que a oportunidade de fala passa.'
+  },
+  {
+    num: '02',
+    titulo: 'A oportunidade internacional',
+    texto: 'A vaga é exatamente o que você procura: liderança de time global, remuneração em moeda forte e autonomia. O pré-requisito pede inglês fluente. Você sabe que seu inglês é intermediário funcional. O currículo não é enviado. Uma barreira de idioma impede que anos de experiência técnica sejam avaliados com justiça.'
+  },
+  {
+    num: '03',
+    titulo: 'A conferência no exterior',
+    texto: 'Você viaja para o evento em Berlim ou Chicago. Assiste às palestras principais, fotografa os slides e entende o conteúdo. Mas o valor real do investimento não está no palco; está no café com outros diretores, no almoço com potenciais parceiros e na conversa espontânea do jantar. Falar sob esforço constante limita sua capacidade de fazer networking.'
+  },
+  {
+    num: '04',
+    titulo: 'A negociação crítica',
+    texto: 'Alinhar prazos contratuais, redigir e-mails decisivos ou negociar o escopo de um projeto com a matriz. Depender de ferramentas automáticas de tradução tira a sutileza do seu argumento e cria insegurança jurídica ou comercial. O profissional sênior precisa escolher as palavras com a precisão exata do contexto.'
+  }
+];
+
+const pilares = [
+  {
+    num: '01',
+    titulo: 'Diagnóstico da sua rotina real',
+    desc: 'Não aplicamos provas escolares de múltipla escolha. Identificamos com precisão as reuniões em que você trava, os termos do seu setor que você ainda não domina e os tipos de mensagens que mais exigem seu tempo. O ponto de partida é o seu trabalho diário.'
+  },
+  {
+    num: '02',
+    titulo: 'Trabalho direcionado ao seu setor',
+    desc: 'Cada sessão com a north. é construída sobre o seu segmento: tecnologia, mercado financeiro, consultoria, saúde ou jurídico. O material de aula são os próprios relatórios, apresentações e situações que você vivenciará na mesma semana.'
+  },
+  {
+    num: '03',
+    titulo: 'Professores com vivência de mercado',
+    desc: 'Nossa equipe é formada por profissionais com formação acadêmica e experiência corporativa prévia. Eles entendem o vocabulário e o ritmo de um comitê executivo porque conhecem o ambiente de negócios por dentro.'
+  }
+];
+
+const depoimentos = [
+  {
+    nome: 'Marcos Correia',
+    cargo: 'Diretor de Engenharia de Software',
+    local: 'São Paulo',
+    texto: 'Eu acompanhava as reuniões da diretoria global em silêncio. Entendia 80%, mas não conseguia formular contra-argumentos na velocidade em que os líderes de produto debatiam. Em seis meses de trabalho prático com a north., assumi a condução da sincronização semanal com Austin sem precisar de tradução mental.'
+  },
+  {
+    nome: 'Carolina Braga',
+    cargo: 'Sócia de Consultoria Estratégica',
+    local: 'Belo Horizonte',
+    texto: 'Perdi uma rodada de propostas em Londres porque hesitei na sustentação oral do caso. Eu sabia a gramática; o que me faltava era treinar oratória e argumentação sob pressão. Hoje conduzo defesas para comitês internacionais com a mesma calma com que falo em português.'
+  },
+  {
+    nome: 'Rafael Duarte',
+    cargo: 'Head de Produto & Inovação',
+    local: 'Porto Alegre',
+    texto: 'Passei dois anos evitando convites para falar em painéis internacionais. O método da north. me ajudou a estruturar minhas apresentações, dominar o vocabulário técnico da minha área e responder a perguntas difíceis sem hesitação.'
+  }
+];
+---
+
+<BaseLayout
+  title="north. — Escola de Inglês para Executivos e Profissionais"
+  description="A escola de inglês focada em adultos e executivos. Treinamento prático e individualizado para reuniões, apresentações e negociações reais."
+>
+
+  <!-- Hero Section Havenly Style -->
+  <section class="hero-section section-dark">
+    <div class="hero-content-layer">
+      <!-- Bloco Principal de Texto à Esquerda -->
+      <div class="hero-main-text">
+        <div class="hero-badge reveal">
+          <span class="badge-icon">✦</span>
+          <span class="mono">ESCOLA DE INGLÊS EXECUTIVO</span>
+        </div>
+
+        <h1 class="hero-title serif reveal">
+          A escola de inglês para quem precisa usar o idioma no trabalho com a mesma segurança do português<span class="dot-wine">.</span>
+        </h1>
+
+        <p class="hero-lead reveal">
+          Sem métodos infantis, sem livros genéricos. Na north., preparamos adultos e líderes para conduzir reuniões, liderar equipes globais e fechar negócios sem depender de tradução mental.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a href="#diagnostico" class="hero-btn-pill hero-btn-primary">
+            <span>Iniciar Diagnóstico Profissional</span>
+          </a>
+          <a href="/metodologia" class="hero-btn-pill hero-btn-glass">
+            <span>Entenda a Metodologia</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Barra de Cards Inferiores em Vidro (Rodapé da Hero) -->
+      <div class="hero-footer-cards reveal">
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">1:1</strong>
+            <span>Sessões individuais focadas no seu setor</span>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">100%</strong>
+            <span>Casos, reuniões e documentos reais</span>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">24h</strong>
+            <span>Retorno para agendamento</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 02: Situações Reais -->
+  <section id="situacoes" class="section section-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Cenários Reais</span>
+        <h2 class="section-title serif">Onde o inglês tradicional</br> costuma falhar</h2>
+        <p class="section-subtitle">
+          Adultos e profissionais que já estudaram inglês por anos frequentemente enfrentam os mesmos gargalos práticos no cotidiano corporativo:
+        </p>
+      </div>
+
+      <div class="situacoes-list stagger">
+        {situacoes.map((item) => (
+          <article class="situacao-card reveal">
+            <div class="situacao-header">
+              <span class="situacao-num mono wine">{item.num}</span>
+              <h3 class="situacao-title serif">{item.titulo}</h3>
+            </div>
+            <p class="situacao-body">{item.texto}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 03: O Reframe -->
+  <section class="section section-dark section-reframe">
+    <div class="container container-editorial">
+      <div class="reframe-content reveal">
+        <div class="reframe-visual">
+          <img
+            src="/img/Imagens/Mentor_delivering_feedback_to_ex…_20260914102031.webp"
+            alt="Mentor delivering feedback to executive"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="reframe-copy">
+          <span class="section-tag light">A Proposta north.</span>
+          <h2 class="reframe-title serif">
+            <span>O problema não é você, </br>é o método.</span>
+            <span>O inglês que você precisa não é o de escola infantil.</span>
+          </h2>
+          <div class="reframe-body">
+            <p>
+              Escolas tradicionais de idiomas vendem planos de quatro a seis anos baseados em livros didáticos engessados e diálogos artificiais. Quem lidera operações, gere orçamentos ou toma decisões não tem tempo a perder com exercícios de preencher lacunas.
+            </p>
+            <p>
+              A <strong class="wine">north.</strong> é uma escola de inglês construída com respeito ao tempo e à inteligência do profissional sênior. Aqui, o inglês é tratado como ferramenta de precisão.
+            </p>
+          </div>
+          <div class="reframe-cta">
+            <a href="/sobre" class="btn btn-secondary">Conheça nossa história e abordagem →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 04: O Que Muda -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Objetivos Concretos</span>
+        <h2 class="section-title serif">Competência que </br> se reflete na prática</h2>
+      </div>
+
+      <div class="muda-grid stagger">
+        <div class="muda-card reveal">
+          <h3 class="muda-title mono wine">Carreira & Negócios</h3>
+          <ul class="muda-list">
+            <li>Reuniões globais em que você participa da discussão, não apenas ouve no mudo.</li>
+            <li>Entrevistas de emprego internacionais sem ansiedade ou roteiros decorados.</li>
+            <li>Apresentações de resultados para conselhos e matrizes com segurança de vocabulário.</li>
+            <li>Negociações diretas com clientes estrangeiros sem necessidade de intermediários.</li>
+          </ul>
+        </div>
+
+        <div class="muda-card reveal">
+          <h3 class="muda-title mono wine">Presença & Relações</h3>
+          <ul class="muda-list">
+            <li>Networking espontâneo em conferências e jantares profissionais no exterior.</li>
+            <li>Capacidade de expressar humor, ironia sutil e pontos de vista com naturalidade.</li>
+            <li>Consumo de artigos, podcasts e livros do seu setor sem depender de traduções lentas.</li>
+            <li>Liberdade para transitar entre países e ambientes executivos sem receio da fala.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 05: Fotografia Editorial -->
+  <section class="section-image">
+    <div class="image-wrapper">
+      <img
+        src="/img/Imagens/Colleagues_having_conversation_20260914102032.webp"
+        alt="Executivos em trânsito e diálogo em átrio corporativo contemporâneo"
+        class="editorial-img"
+        loading="lazy"
+      />
+    </div>
+    <div class="container">
+      <div class="image-caption mono">
+        <span>São Paulo · Unidade Itaim & Atendimento Global Online</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 06: Como a north. Trabalha -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Metodologia</span>
+        <h2 class="section-title serif">Como a north. trabalha</h2>
+        <p class="section-subtitle">
+          Três pilares fundamentais para transformar anos de estudo teórico em segurança de comunicação:
+        </p>
+      </div>
+
+      <div class="pilares-grid stagger">
+        {pilares.map((pilar) => (
+          <div class="pilar-card reveal">
+            <span class="pilar-num mono wine">{pilar.num}</span>
+            <h3 class="pilar-title serif">{pilar.titulo}</h3>
+            <p class="pilar-desc">{pilar.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="pilares-cta reveal">
+        <a href="/metodologia" class="btn btn-secondary">
+          Ver o passo a passo completo da metodologia →
+        </a>
+      </div>
+
+      <div class="metodologia-visual reveal">
+        <img
+          src="/img/Imagens/Professionals_rehearsing_busines…_20260914102032.webp"
+          alt="Executivos em conversa e colaboração profissional"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 07: Depoimentos Reais -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag light">Evidências</span>
+        <h2 class="section-title serif">Resultados de quem já resolveu o inglês</h2>
+      </div>
+
+      <div class="depoimentos-grid stagger">
+        {depoimentos.map((dep) => (
+          <blockquote class="depoimento-card reveal">
+            <p class="depoimento-text serif">"{dep.texto}"</p>
+            <footer class="depoimento-footer">
+              <strong class="depoimento-nome">{dep.nome}</strong>
+              <span class="depoimento-cargo">{dep.cargo}</span>
+              <span class="depoimento-local mono wine">{dep.local}</span>
+            </footer>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 08: Diagnóstico Profissional -->
+  <section id="diagnostico" class="section section-light">
+    <div class="container container-narrow">
+      <div class="section-header reveal" style="text-align: center;">
+        <span class="section-tag">Primeiro Passo</span>
+        <h2 class="section-title serif">Agende seu diagnóstico individual</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          Uma conversa direta de 20 minutos com um coordenador pedagógico para analisar o seu perfil, mapear suas principais reuniões e propor a trilha mais objetiva.
+        </p>
+      </div>
+
+      <div class="reveal">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ==========================================================================
+     HERO SECTION (DESIGN SYSTEM NORTH: BORDER-RADIUS ZERO)
+     ========================================================================== */
+  .hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;
+    background-color: #0c0a0b;
+    background-image:
+      linear-gradient(90deg, rgba(12, 10, 11, 0.98) 0%, rgba(12, 10, 11, 0.85) 24%, rgba(12, 10, 11, 0.52) 42%, rgba(12, 10, 11, 0.18) 64%, rgba(12, 10, 11, 0.08) 100%),
+      url('/img/Imagens/Two_executives_walking_in_atrium_20260914102032_2.webp');
+    background-size: cover;
+    background-position: 60% center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    filter: saturate(1.05) contrast(1.04);
+  }
+
+  .hero-content-layer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    margin-inline: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding-top: calc(80px + 3rem);
+    padding-bottom: 3.5rem;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .hero-content-layer {
+      padding-left: 60px;
+      padding-right: 60px;
+      padding-bottom: 4rem;
+    }
+  }
+
+  .hero-main-text {
+    max-width: 780px;
+    margin-top: auto;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Badge com cantos retos */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f7f6f5;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 6px 14px;
+    border-radius: 0;
+    margin-bottom: 1.75rem;
+  }
+
+  .badge-icon {
+    color: #d19a9e;
+    font-size: 0.875rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.35rem, 4.2vw, 3.9rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    text-wrap: balance;
+  }
+
+  .hero-lead {
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 2.25rem;
+    max-width: 560px;
+  }
+
+  /* Botões retos (border-radius: 0) */
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 12px 18px 12px 22px;
+    border-radius: 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .hero-btn-primary {
+    background-color: var(--color-wine, #722f37);
+    color: #ffffff;
+    border: 1px solid var(--color-wine, #722f37);
+  }
+
+  .hero-btn-primary:hover {
+    background-color: #5b242b;
+    transform: translateY(-1px);
+  }
+
+  .hero-btn-primary .btn-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8125rem;
+  }
+
+  .hero-btn-glass {
+    background: rgba(255, 255, 255, 0.06);
+    color: #f7f6f5;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .hero-btn-glass:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .hero-btn-glass .btn-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.12);
+    color: #f7f6f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8125rem;
+  }
+
+  /* Cards de rodapé retos */
+  .hero-footer-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: auto;
+  }
+
+  .glass-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 12px 18px;
+    border-radius: 0;
+  }
+
+  .glass-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 0;
+    background: rgba(209, 154, 158, 0.15);
+    color: #d19a9e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+  }
+
+  .glass-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .glass-text strong {
+    font-size: 0.875rem;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .glass-text span {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* ==========================================================================
+     DEMAIS SEÇÕES (PADRÃO RECTILÍNEO)
+     ========================================================================== */
+  .situacoes-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8, 2rem);
+  }
+
+  @media (min-width: 768px) {
+    .situacoes-list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-10, 2.5rem);
+    }
+  }
+
+  .situacao-card {
+    background-color: var(--color-surface-pure, #ffffff);
+    border: 1px solid var(--color-border, #e5e5e5);
+    padding: var(--space-8, 2rem);
+    border-radius: 0;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .situacao-card:hover {
+    border-color: var(--color-wine-border, #722f37);
+    transform: translateY(-2px);
+  }
+
+  .situacao-header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-4, 1rem);
+    margin-bottom: var(--space-4, 1rem);
+  }
+
+  .situacao-num {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  .situacao-title {
+    font-size: 1.375rem;
+    color: var(--color-primary, #111111);
+  }
+
+  .situacao-body {
+    font-size: 0.9375rem;
+    line-height: 1.68;
+    color: var(--color-text-body, #444444);
+  }
+
+  .section-reframe {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-top: 1px solid var(--color-border-dark-subtle, rgba(255, 255, 255, 0.08));
+    border-bottom: 1px solid var(--color-border-dark-subtle, rgba(255, 255, 255, 0.08));
+  }
+
+  .container-editorial {
+    max-width: 1440px;
+  }
+
+  .reframe-content {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4.5rem);
+  }
+
+  .reframe-visual {
+    flex: 0 0 46%;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 9 / 16;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .reframe-visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .reframe-copy {
+    flex: 1 1 auto;
+    padding-right: 120px;
+    padding-left: 80px;
+          }
+
+  .reframe-title {
+    font-size: clamp(2rem, 3.8vw, 3.3rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    color: var(--color-text-light, #f7f6f5);
+    margin-bottom: var(--space-6, 1.5rem);
+    max-width: 760px;
+    text-wrap: balance;
+  }
+
+  .reframe-title span {
+    display: block;
+  }
+
+  .reframe-title span:first-child {
+    color: rgba(247, 246, 245, 0.8);
+  }
+
+  .reframe-title span + span {
+    margin-top: 8px;
+    color: #efe3df;
+  }
+
+  .reframe-body p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text-light-body, rgba(247, 246, 245, 0.8));
+    margin-bottom: var(--space-5, 1.25rem);
+    max-width: 650px;
+  }
+
+  .reframe-cta {
+    margin-top: var(--space-8, 2rem);
+  }
+
+  @media (max-width: 767px) {
+    .reframe-content {
+      display: block;
+    }
+
+    .reframe-visual {
+      margin-bottom: 2rem;
+      max-width: 100%;
+      flex-basis: auto;
+    }
+
+    .reframe-copy {
+      padding-left: 0;
+    }
+  }
+
+  .muda-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8, 2rem);
+  }
+
+  @media (min-width: 768px) {
+    .muda-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-10, 2.5rem);
+    }
+  }
+
+  .muda-card {
+    background-color: var(--color-surface-pure, #ffffff);
+    border: 1px solid var(--color-border, #e5e5e5);
+    padding: var(--space-10, 2.5rem);
+    border-radius: 0;
+  }
+
+  .muda-title {
+    font-size: 0.8125rem;
+    margin-bottom: var(--space-6, 1.5rem);
+    display: block;
+    letter-spacing: 0.08em;
+  }
+
+  .muda-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4, 1rem);
+  }
+
+  .muda-list li {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-body, #444444);
+    padding-left: var(--space-6, 1.5rem);
+    position: relative;
+  }
+
+  .muda-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-wine, #722f37);
+  }
+
+  .section-image {
+    padding: 0;
+  }
+
+  .image-wrapper {
+    width: 100%;
+    max-height: 620px;
+    overflow: hidden;
+  }
+
+  .editorial-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .image-caption {
+    padding: var(--space-4, 1rem) 0;
+    font-size: 0.75rem;
+    color: var(--color-text-muted, #777777);
+    border-bottom: 1px solid var(--color-border, #e5e5e5);
+  }
+
+  .pilares-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8, 2rem);
+    margin-bottom: var(--space-12, 3rem);
+  }
+
+  @media (min-width: 992px) {
+    .pilares-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .pilar-card {
+    border-top: 2px solid var(--color-wine, #722f37);
+    padding-top: var(--space-6, 1.5rem);
+  }
+
+  .pilar-num {
+    font-size: 1rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: var(--space-3, 0.75rem);
+  }
+
+  .pilar-title {
+    font-size: 1.5rem;
+    color: var(--color-primary, #111111);
+    margin-bottom: var(--space-3, 0.75rem);
+  }
+
+  .pilar-desc {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--color-text-body, #444444);
+  }
+
+  .pilares-cta {
+    text-align: center;
+    padding-top: var(--space-6, 1.5rem);
+  }
+
+  .metodologia-visual {
+    width: 100%;
+    margin-top: var(--space-10, 2.5rem);
+    overflow: hidden;
+    border-radius: 8px;
+    background: rgba(17, 17, 17, 0.04);
+  }
+
+  .metodologia-visual img {
+    display: block;
+    width: 100%;
+    height: clamp(260px, 34vw, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .depoimentos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8, 2rem);
+  }
+
+  @media (min-width: 992px) {
+    .depoimentos-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .depoimento-card {
+    background-color: var(--color-surface-card-dark, #161415);
+    border: 1px solid var(--color-border-dark-subtle, rgba(255, 255, 255, 0.08));
+    padding: var(--space-8, 2rem);
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .depoimento-text {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-text-light-body, rgba(247, 246, 245, 0.8));
+    margin-bottom: var(--space-8, 2rem);
+  }
+
+  .depoimento-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-top: 1px solid var(--color-border-dark-subtle, rgba(255, 255, 255, 0.08));
+    padding-top: var(--space-4, 1rem);
+  }
+
+  .depoimento-nome {
+    color: var(--color-text-light, #f7f6f5);
+    font-size: 0.9375rem;
+  }
+
+  .depoimento-cargo {
+    color: var(--color-text-light-muted, rgba(247, 246, 245, 0.5));
+    font-size: 0.8125rem;
+  }
+
+  .depoimento-local {
+    font-size: 0.6875rem;
+    margin-top: 4px;
+  }
+</style>

@@ -1,0 +1,653 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const pilaresB2B = [
+  {
+    num: '01',
+    titulo: 'Diagnóstico por Equipe',
+    desc: 'Avaliamos individualmente cada colaborador indicado, identificando em quais situações de negócio ele mais precisa do idioma e onde ocorrem as falhas de comunicação.'
+  },
+  {
+    num: '02',
+    titulo: 'Trilhas Específicas por Função',
+    desc: 'Engenheiros treinam termos técnicos e alinhamento de roadmap. Líderes comerciais treinam propostas e negociação de contratos. Não há turmas genéricas com pessoas de áreas opostas.'
+  },
+  {
+    num: '03',
+    titulo: 'Dashboard & Relatórios para o RH',
+    desc: 'A liderança de RH recebe relatórios mensais objetivos com taxa de presença, evolução de fluidez e indicadores claros de autonomia nas reuniões reais da empresa.'
+  },
+  {
+    num: '04',
+    titulo: 'Flexibilidade Real de Agenda',
+    desc: 'Sabemos que a rotina executiva é imprevisível. Oferecemos políticas flexíveis de reagendamento para que viagens, fechamentos de trimestre e emergências não prejudiquem o plano.'
+  }
+];
+
+const formatos = [
+  {
+    titulo: '1:1 Executivo',
+    idealPara: 'C-Level, Diretores e Líderes Estratégicos',
+    desc: 'Sessões individuais de alta confidencialidade, com foco nas reuniões de diretoria, comitês com a matriz e relações com investidores estrangeiros.',
+    imagem: '/img/Imagens/Executive_explaining_strategy_at._20260914102032.webp',
+    alt: 'Sessão individual executiva 1:1 de alta confidencialidade para C-Level'
+  },
+  {
+    titulo: 'Squads de Negócios (3 a 4 pessoas)',
+    idealPara: 'Times Comerciais, Pré-Vendas e Product Managers',
+    desc: 'Pequenos grupos da mesma área de atuação para debates técnicos, simulação de pitches e alinhamento de vocabulário setorial comum.',
+    imagem: '/img/Imagens/Executives_collaborating_over_ta._20260914102032.webp',
+    alt: 'Squad comercial e de produto alinhando vocabulário e simulações'
+  },
+  {
+    titulo: 'Módulos Intensivos de Projeto',
+    idealPara: 'Equipes envolvidas em M&A, Auditorias ou Rodadas Globais',
+    desc: 'Treinamento focado em uma entrega com data marcada: preparar o time técnico para due diligence ou sustentar reuniões de integração pós-aquisição.',
+    imagem: '/img/Imagens/Executives_discussing_strategy_a._20260914102032.webp',
+    alt: 'War room executiva em preparação para M&A e auditorias internacionais'
+  }
+];
+---
+
+<BaseLayout
+  title="north. para Empresas — Treinamento Corporativo em Inglês Prático"
+  description="Treinamento em inglês executivo para líderes e equipes. Foco em reuniões globais, negociações e autonomia com métricas de evolução para o RH."
+>
+
+  <!-- Hero Header -->
+  <section class="hero-section section-dark">
+    <div class="hero-content-layer">
+      <div class="hero-main-text">
+        <div class="hero-badge reveal">
+          <span class="badge-icon">✦</span>
+          <span class="mono">LÍDERES & EQUIPES INTERNACIONAIS</span>
+        </div>
+
+        <h1 class="hero-title serif reveal">
+          Quando a sua equipe fala inglês com segurança, a empresa conversa no mesmo ritmo do mercado<span class="dot-wine">.</span>
+        </h1>
+
+        <p class="hero-lead reveal">
+          O problema não é o curso. É a falta de autonomia em reuniões com a matriz, clientes e parceiros internacionais. A north. transforma o inglês em vantagem competitiva real para líderes e times executivos.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a href="#contato-b2b" class="hero-btn-pill hero-btn-primary">
+            <span>Agendar Diagnóstico Corporativo</span>
+          </a>
+          <a href="/sobre" class="hero-btn-pill hero-btn-glass">
+            <span>Ver a Metodologia</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-footer-cards reveal">
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">RH</strong>
+            <span>Indicadores claros de evolução</span>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">Matriz</strong>
+            <span>Reuniões com autonomia e agilidade</span>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">Time</strong>
+            <span>Foco em decisões e negociação real</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 01: O Desafio Organizacional -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">O Gargalo Invisível</span>
+        <h2 class="section-title serif">O impacto do idioma na </br>produtividade executiva</h2>
+        <p class="section-subtitle">
+          Na maioria das médias e grandes empresas com atuação internacional, o problema do inglês não é a falta de cursos prévios no currículo, mas a falta de segurança na hora H:
+        </p>
+      </div>
+
+      <div class="impacto-grid stagger">
+        <div class="impacto-card reveal">
+          <span class="impacto-num mono wine">01</span>
+          <h3 class="impacto-title serif">Decisões Centralizadas</h3>
+          <p class="impacto-desc">
+            Quando gerentes e coordenadores hesitam em conduzir calls em inglês, o diretor ou VP precisa entrar em todas as reuniões para servir de porta-voz, sobrecarregando o topo da liderança.
+          </p>
+        </div>
+
+        <div class="impacto-card reveal">
+          <span class="impacto-num mono wine">02</span>
+          <h3 class="impacto-title serif">Atrasos em Alinhamentos</h3>
+          <p class="impacto-desc">
+            Dúvidas operacionais com matrizes americanas ou europeias deixam de ser resolvidas em uma conversa rápida de 10 minutos e viram trocas demoradas de e-mails traduzidos por ferramentas.
+          </p>
+        </div>
+
+        <div class="impacto-card reveal">
+          <span class="impacto-num mono wine">03</span>
+          <h3 class="impacto-title serif">Perda de Posições Globais</h3>
+          <p class="impacto-desc">
+            Talentos técnicos brilhantes perdem espaço em projetos internacionais prioritários porque não conseguem defender suas decisões de engenharia ou arquitetura com clareza em inglês.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 02: Os 4 Pilares Corporativos -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Estrutura B2B</span>
+        <h2 class="section-title serif">Como desenhamos o programa da sua empresa</h2>
+      </div>
+
+      <div class="b2b-layout stagger">
+        <div class="b2b-visual reveal">
+          <img
+            src="/img/Imagens/Executive_explaining_strategy_at._20260914102032.webp"
+            alt="Executivo explicando estratégia em ambiente corporativo"
+            class="b2b-visual-image"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="b2b-cards-grid reveal">
+          {pilaresB2B.map((pilar) => (
+            <div class="b2b-card">
+              <span class="b2b-num mono wine">{pilar.num}</span>
+              <h3 class="b2b-title serif">{pilar.titulo}</h3>
+              <p class="b2b-desc">{pilar.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 03: Formatos de Atendimento -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Modelos de Treinamento</span>
+        <h2 class="section-title serif">Formatos adaptados ao tamanho do time</h2>
+      </div>
+
+      <div class="formatos-grid stagger">
+        {formatos.map((fmt) => (
+          <article class="formato-card reveal">
+            <div class="formato-media">
+              <img
+                src={fmt.imagem}
+                alt={fmt.alt}
+                class="formato-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="formato-content">
+              <h3 class="formato-title serif">{fmt.titulo}</h3>
+              <span class="formato-ideal mono wine">{fmt.idealPara}</span>
+              <p class="formato-desc">{fmt.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 04: Formulário B2B -->
+  <section id="contato-b2b" class="section section-dark">
+    <div class="container container-narrow">
+      <div class="section-header reveal" style="text-align: center;">
+        <span class="section-tag light">Diagnóstico Organizacional</span>
+        <h2 class="section-title serif">Solicite uma proposta para sua empresa</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          Nossa equipe corporativa analisa as metas da sua organização e monta um plano de atendimento sob medida, com diagnóstico inicial dos colaboradores.
+        </p>
+      </div>
+
+      <div class="reveal">
+        <ContactForm
+          title="Solicite uma proposta para sua empresa"
+          subtitle="Nossa equipe corporativa analisa as metas da sua organização e monta um plano de atendimento sob medida, com diagnóstico inicial dos colaboradores."
+        />
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;
+    background-color: #0c0a0b;
+    background-image:
+      linear-gradient(90deg, rgba(12, 10, 11, 0.98) 0%, rgba(12, 10, 11, 0.85) 24%, rgba(12, 10, 11, 0.52) 42%, rgba(12, 10, 11, 0.18) 64%, rgba(12, 10, 11, 0.08) 100%),
+      url('/img/Imagens/Executives_discussing_in_boardroom_20260914102032.webp');
+    background-size: cover;
+    background-position: 60% center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+
+  .hero-content-layer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    margin-inline: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding-top: calc(80px + 3rem);
+    padding-bottom: 3.5rem;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .hero-content-layer {
+      padding-left: 60px;
+      padding-right: 60px;
+      padding-bottom: 4rem;
+    }
+  }
+
+  .hero-main-text {
+    max-width: 780px;
+    margin-top: auto;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f7f6f5;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 6px 14px;
+    border-radius: 0;
+    margin-bottom: 1.75rem;
+  }
+
+  .badge-icon {
+    color: #d19a9e;
+    font-size: 0.875rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.35rem, 4.2vw, 3.9rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    text-wrap: balance;
+  }
+
+  .hero-lead {
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 2.25rem;
+    max-width: 560px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 12px 18px 12px 22px;
+    border-radius: 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .hero-btn-primary {
+    background-color: var(--color-wine, #722f37);
+    color: #ffffff;
+    border: 1px solid var(--color-wine, #722f37);
+  }
+
+  .hero-btn-primary:hover {
+    background-color: #5b242b;
+    transform: translateY(-1px);
+  }
+
+  .hero-btn-glass {
+    background: rgba(255, 255, 255, 0.06);
+    color: #f7f6f5;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .hero-btn-glass:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .hero-footer-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: auto;
+  }
+
+  .glass-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 12px 18px;
+    border-radius: 0;
+  }
+
+  .glass-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 0;
+    background: rgba(209, 154, 158, 0.15);
+    color: #d19a9e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+  }
+
+  .glass-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .glass-text strong {
+    font-size: 0.875rem;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .glass-text span {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* Impacto Grid */
+  .impacto-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 992px) {
+    .impacto-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .impacto-card {
+    background-color: var(--color-surface-pure);
+    border: 1px solid var(--color-border);
+    padding: var(--space-8);
+    border-radius: var(--radius-sm);
+  }
+
+  .impacto-num {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+    display: block;
+  }
+
+  .impacto-title {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .impacto-desc {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--color-text-body);
+  }
+
+  /* Pilares B2B */
+  .b2b-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    align-items: stretch;
+  }
+
+  @media (min-width: 980px) {
+    .b2b-layout {
+      grid-template-columns: 0.82fr 2fr;
+      gap: 1.15rem;
+    }
+  }
+
+  .b2b-visual {
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-alt);
+    overflow: hidden;
+    min-height: 420px;
+  }
+
+  .b2b-visual-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    filter: saturate(0.9) contrast(1.04);
+  }
+
+  .b2b-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .b2b-cards-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .b2b-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--color-surface-pure);
+    border: 1px solid var(--color-border);
+    padding: 1.5rem 1.4rem 1.6rem;
+    min-height: 200px;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .b2b-card::before {
+    content: "";
+    position: absolute;
+    top: 1.2rem;
+    left: 1.4rem;
+    width: 34px;
+    height: 2px;
+    background: var(--color-wine);
+  }
+
+  .b2b-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(136, 12, 36, 0.24);
+    box-shadow: 0 18px 40px rgba(17, 17, 17, 0.04);
+  }
+
+  .b2b-num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+    display: block;
+    color: var(--color-wine);
+    padding-left: 0.2rem;
+  }
+
+  .b2b-title {
+    font-size: clamp(1.35rem, 1.8vw, 1.8rem);
+    color: var(--color-primary);
+    margin: 0 0 0.7rem;
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+  }
+
+  .b2b-desc {
+    font-size: 0.92rem;
+    line-height: 1.68;
+    color: var(--color-text-body);
+    margin: 0;
+    max-width: 32ch;
+  }
+
+  /* Formatos */
+  .formatos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 992px) {
+    .formatos-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.6rem;
+      align-items: stretch;
+    }
+  }
+
+  .formato-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(244,239,231,0.98) 100%);
+    border: 1px solid rgba(30, 25, 22, 0.12);
+    padding: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
+    transition: border-color var(--motion-base), box-shadow var(--motion-base), transform var(--motion-base);
+    min-height: 100%;
+    box-shadow: 0 10px 24px rgba(17, 17, 17, 0.02);
+  }
+
+  .formato-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-wine) 0%, rgba(136, 12, 36, 0.18) 100%);
+  }
+
+  .formato-card:hover {
+    border-color: rgba(136, 12, 36, 0.26);
+    box-shadow: 0 24px 38px rgba(17, 17, 17, 0.08);
+    transform: translateY(-3px);
+  }
+
+  .formato-media {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid rgba(30, 25, 22, 0.08);
+    background-color: var(--color-surface-alt);
+  }
+
+  .formato-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--motion-slow);
+    filter: saturate(0.88) contrast(1.08);
+  }
+
+  .formato-card:hover .formato-img {
+    transform: scale(1.05);
+  }
+
+  .formato-content {
+    padding: 1.35rem 1.35rem 1.6rem;
+  }
+
+  .formato-title {
+    font-size: clamp(1.7rem, 2vw, 2.15rem);
+    color: var(--color-primary);
+    line-height: 1.12;
+    margin: 0 0 0.7rem;
+    letter-spacing: -0.04em;
+  }
+
+  .formato-ideal {
+    display: inline-block;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-wine);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+
+  .formato-desc {
+    font-size: 0.92rem;
+    line-height: 1.72;
+    color: var(--color-text-body);
+    margin: 0;
+    max-width: 32ch;
+  }
+
+</style>

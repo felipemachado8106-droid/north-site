@@ -1,0 +1,82 @@
+/* ==========================================================================
+   north. — Design Tokens & Core Variables
+   Identity: Bordeaux / Wine Accent (#880C24, #992122, #7D2322)
+   Surfaces: #1C1917 (Graphite) & #F4EFE7 (Ivory)
+   ========================================================================== */
+
+:root {
+  /* Brand Wine Accent (north. Signature) */
+  --color-wine: #880C24;
+  --color-wine-light: #992122;
+  --color-wine-deep: #7D2322;
+  --color-wine-glow: rgba(136, 12, 36, 0.12);
+  --color-wine-tint: rgba(136, 12, 36, 0.05);
+  --color-wine-border: rgba(136, 12, 36, 0.25);
+
+  /* Primary Editorial Neutrals */
+  --color-primary: #1C1917;       /* Dark Graphite */
+  --color-secondary: #3D3835;     /* Dark Charcoal */
+  --color-surface: #F4EFE7;       /* Refined Ivory */
+  --color-surface-alt: #EAE5DD;   /* Muted Sand Surface */
+  --color-surface-pure: #FFFFFF;
+  --color-surface-dark: #141211;  /* Deep Stage Black */
+  --color-surface-card-dark: #23201E;
+
+  /* Typography Colors */
+  --color-text-main: #1C1917;
+  --color-text-body: #3D4046;
+  --color-text-muted: #7E776F;
+  --color-text-light: #F4EFE7;
+  --color-text-light-body: #CFC7BE;
+  --color-text-light-muted: #9E968D;
+
+  /* Structural Borders */
+  --color-border: #DCD6CC;
+  --color-border-light: rgba(28, 25, 23, 0.08);
+  --color-border-dark: #2F2B28;
+  --color-border-dark-subtle: rgba(244, 239, 231, 0.12);
+
+  /* Semantic Feedback */
+  --color-success: #3E5A44;
+  --color-error: #880C24;
+  --color-warning: #B8782E;
+
+  /* Typography Stacks */
+  --font-serif: "Editor's Note", 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  /* Spacing Scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-30: 120px;
+  --space-40: 160px;
+
+  /* Motion & Easing */
+  --motion-fast: 160ms;
+  --motion-base: 260ms;
+  --motion-smooth: 420ms;
+  --motion-reveal: 650ms;
+  --motion-narrative: 850ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout Containers */
+  --container-max: 1240px;
+  --container-narrow: 860px;
+  --container-editorial: 720px;
+  --header-height: 80px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+}

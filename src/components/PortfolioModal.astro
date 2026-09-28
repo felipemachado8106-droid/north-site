@@ -1,0 +1,415 @@
+---
+// PortfolioModal.astro — Modal informativo de Portfólio MachadoON
+---
+
+<div id="portfolio-modal" class="portfolio-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="portfolio-modal-title">
+  <div class="portfolio-modal-backdrop" id="portfolio-modal-backdrop"></div>
+  
+  <div class="portfolio-modal-container">
+    <div class="portfolio-modal-card">
+      
+      <!-- Botão Fechar -->
+      <button type="button" class="portfolio-modal-close" id="portfolio-modal-close" aria-label="Fechar modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Badge de Identificação -->
+      <div class="portfolio-modal-header">
+        <div class="portfolio-badge">
+          <span class="badge-dot"></span>
+          <span class="badge-text">CASE DE PORTFÓLIO • MACHADOON</span>
+        </div>
+      </div>
+
+      <!-- Conteúdo Principal -->
+      <div class="portfolio-modal-body">
+        <h3 id="portfolio-modal-title" class="portfolio-title">
+          Projeto desenvolvido para o portfólio da MachadoON.
+        </h3>
+        
+        <p class="portfolio-description">
+          A <strong>north.</strong> foi concebida e arquitetada pela <strong>MachadoON</strong> como uma demonstração prática de posicionamento estratégico, design editorial sofisticado e engenharia web de alta performance para lideranças e consultorias globais.
+        </p>
+
+        <p class="portfolio-subtext">
+          Este site representa o padrão de excelência visual, copywriting de autoridade e tecnologia que desenvolvemos para os nossos clientes. Por se tratar de um ambiente de demonstração, as ações de agendamento e contato comercial conectam você diretamente à equipe da MachadoON.
+        </p>
+
+        <!-- Pilares do Case -->
+        <div class="portfolio-pillars">
+          <div class="pillar-item">
+            <span class="pillar-num">01</span>
+            <div class="pillar-info">
+              <strong>Estratégia & Identidade</strong>
+              <span>Posicionamento de alto valor e estética editorial.</span>
+            </div>
+          </div>
+          <div class="pillar-item">
+            <span class="pillar-num">02</span>
+            <div class="pillar-info">
+              <strong>Arquitetura & Copywriting</strong>
+              <span>Narrativa focada em retenção e alta conversão executiva.</span>
+            </div>
+          </div>
+          <div class="pillar-item">
+            <span class="pillar-num">03</span>
+            <div class="pillar-info">
+              <strong>Engenharia Cloudflare</strong>
+              <span>Segurança avançada, entrega estática e velocidade instantânea.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ações do Modal -->
+      <div class="portfolio-modal-actions">
+        <a 
+          href="https://machadoon.com.br" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn-portfolio-primary"
+        >
+          <span>Conhecer a MachadoON</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+
+        <button type="button" class="btn-portfolio-secondary" id="portfolio-modal-dismiss">
+          Continuar explorando a north.
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  .portfolio-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .portfolio-modal-overlay.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .portfolio-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 12, 11, 0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .portfolio-modal-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 580px;
+    padding: var(--space-4, 16px);
+  }
+
+  .portfolio-modal-card {
+    position: relative;
+    background: #181514;
+    border: 1px solid rgba(244, 239, 231, 0.14);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(136, 12, 36, 0.25);
+    border-radius: 12px;
+    padding: 36px 32px;
+    color: #F4EFE7;
+    transform: scale(0.95) translateY(10px);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .portfolio-modal-overlay.is-active .portfolio-modal-card {
+    transform: scale(1) translateY(0);
+  }
+
+  .portfolio-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(244, 239, 231, 0.06);
+    border: 1px solid rgba(244, 239, 231, 0.1);
+    color: #CFC7BE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .portfolio-modal-close:hover {
+    background: rgba(136, 12, 36, 0.4);
+    border-color: #880C24;
+    color: #FFFFFF;
+    transform: rotate(90deg);
+  }
+
+  .portfolio-modal-header {
+    margin-bottom: 20px;
+  }
+
+  .portfolio-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(136, 12, 36, 0.18);
+    border: 1px solid rgba(136, 12, 36, 0.4);
+    border-radius: 100px;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #880C24;
+    box-shadow: 0 0 8px #880C24;
+  }
+
+  .badge-text {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: #F4EFE7;
+  }
+
+  .portfolio-title {
+    font-family: var(--font-serif, "Editor's Note", serif);
+    font-size: 1.85rem;
+    line-height: 1.25;
+    font-weight: 500;
+    color: #F4EFE7;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .portfolio-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #D6CEC5;
+    margin-bottom: 12px;
+  }
+
+  .portfolio-description strong {
+    color: #FFFFFF;
+  }
+
+  .portfolio-subtext {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: #9E968D;
+    margin-bottom: 24px;
+  }
+
+  .portfolio-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: rgba(28, 25, 23, 0.5);
+    border: 1px solid rgba(244, 239, 231, 0.08);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 28px;
+  }
+
+  .pillar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .pillar-num {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #880C24;
+    padding-top: 2px;
+  }
+
+  .pillar-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-info strong {
+    font-size: 0.86rem;
+    color: #F4EFE7;
+    font-weight: 600;
+  }
+
+  .pillar-info span {
+    font-size: 0.78rem;
+    color: #9E968D;
+  }
+
+  .portfolio-modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .btn-portfolio-primary {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 20px;
+    background: #880C24;
+    color: #FFFFFF;
+    border-radius: 6px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(136, 12, 36, 0.35);
+  }
+
+  .btn-portfolio-primary:hover {
+    background: #992122;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(136, 12, 36, 0.5);
+  }
+
+  .btn-portfolio-secondary {
+    padding: 13px 18px;
+    background: transparent;
+    color: #CFC7BE;
+    border: 1px solid rgba(244, 239, 231, 0.16);
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-portfolio-secondary:hover {
+    background: rgba(244, 239, 231, 0.06);
+    color: #FFFFFF;
+    border-color: rgba(244, 239, 231, 0.3);
+  }
+
+  @media (max-width: 600px) {
+    .portfolio-modal-card {
+      padding: 28px 20px;
+    }
+
+    .portfolio-title {
+      font-size: 1.5rem;
+    }
+
+    .portfolio-modal-actions {
+      flex-direction: column;
+    }
+
+    .btn-portfolio-primary,
+    .btn-portfolio-secondary {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // Script de Inicialização Global do Modal de Portfólio
+  function setupPortfolioModal() {
+    const modal = document.getElementById('portfolio-modal');
+    const backdrop = document.getElementById('portfolio-modal-backdrop');
+    const closeBtn = document.getElementById('portfolio-modal-close');
+    const dismissBtn = document.getElementById('portfolio-modal-dismiss');
+
+    if (!modal) return;
+
+    const openModal = (e?: Event) => {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      modal.classList.add('is-active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('is-active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    // Expor no escopo global para acionamento programático
+    (window as any).openPortfolioModal = openModal;
+    (window as any).closePortfolioModal = closeModal;
+
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (dismissBtn) dismissBtn.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+        closeModal();
+      }
+    });
+
+    // Interceptar cliques em botões e links de ação
+    document.addEventListener('click', (e) => {
+      const target = (e.target as HTMLElement).closest('button, a') as HTMLElement;
+      if (!target) return;
+
+      // Ignora se for o próprio botão de ir para MachadoON ou de fechar o modal
+      if (target.closest('.portfolio-modal-card')) return;
+
+      const href = target.getAttribute('href');
+      const isActionLink = href === '/contato' || href === '#diagnostico' || href === '#contato' || href === '#';
+      const hasActionClass = target.classList.contains('nav-cta') || 
+                             target.classList.contains('submit-btn') || 
+                             target.classList.contains('newsletter-btn') ||
+                             target.hasAttribute('data-open-portfolio-modal');
+
+      // Se for botão de submissão de formulário ou botão de conversão
+      if (isActionLink || hasActionClass || (target.tagName === 'BUTTON' && target.getAttribute('type') === 'submit')) {
+        e.preventDefault();
+        e.stopPropagation();
+        openModal(e);
+      }
+    }, true);
+
+    // Interceptar submissão de formulários para garantir que nenhum form tente enviar nada falso
+    document.addEventListener('submit', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openModal(e);
+    }, true);
+  }
+
+  // Inicializar quando o DOM estiver pronto
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupPortfolioModal);
+  } else {
+    setupPortfolioModal();
+  }
+</script>

@@ -1,0 +1,596 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const professores = [
+  {
+    nome: 'Sarah Jenkins',
+    cargo: 'Head Pedagógica & Mentora Sênior',
+    origem: 'Londres, Reino Unido',
+    background: 'Ex-consultora de comunicação corporativa em Londres. M.A. em Linguística Aplicada pela University of Edinburgh. Mais de 12 anos preparando executivos e sócios de consultorias estratégicas para negociações e alinhamentos de comitê.',
+    especialidade: 'Governança Corporativa, Reuniões de Conselho e Comunicação C-Level',
+    foto: '/img/Imagens/Woman_sitting_at_executive_desk_20260914102031.webp'
+  },
+  {
+    nome: 'David Martinez',
+    cargo: 'Mentor de Negócios & Vendas B2B',
+    origem: 'Chicago, EUA',
+    background: 'Atuou por mais de uma década na liderança de operações e expansão comercial nos Estados Unidos. Graduado pela University of Illinois. Especialista em treinar diretores comerciais e heads de vendas para negociação de grandes contratos.',
+    especialidade: 'Negociação B2B, Fechamento de Contratos e Gestão de Conflitos',
+    foto: '/img/Imagens/Sales_mentor_addressing_business._20260914102031.webp'
+  },
+  {
+    nome: 'Elena Rostova',
+    cargo: 'Mentora de Tecnologia & Produto',
+    origem: 'São Francisco / Berlim',
+    background: 'Atuou como tech recruiter e facilitadora de comunicação para startups aceleradas por fundos do Vale do Silício. Especializada na rotina de engenharia de software, roadmaps de produto, arquitetura de sistemas e terminologia ágil.',
+    especialidade: 'Tech Leads, Product Managers e Defesa de Arquitetura de Software',
+    foto: '/img/Imagens/Woman_holding_tablet_and_stylus_20260914102031.webp'
+  },
+  {
+    nome: 'Arthur Mendes',
+    cargo: 'Mentor Jurídico & Relações Internacionais',
+    origem: 'São Paulo / Nova York',
+    background: 'Advogado corporativo com dupla qualificação e LL.M. pela Columbia University. Treina sócios de escritórios e diretores jurídicos para sustentações orais, arbitragens internacionais e minutas contratuais em inglês.',
+    especialidade: 'Direito Corporativo, M&A, Compliance e Termos Contratuais',
+    foto: '/img/Imagens/Man_standing_at_desk_20260914102031.webp'
+  }
+];
+
+const diferenciais = [
+  {
+    num: '01',
+    titulo: 'Vivência Corporativa Real',
+    desc: 'Nossos mentores conhecem a dinâmica de uma reunião de resultados porque já viveram o ambiente corporativo por dentro. Eles entendem o peso de cada termo técnico.'
+  },
+  {
+    num: '02',
+    titulo: 'Confidencialidade Absoluta',
+    desc: 'Sabemos que nossos alunos trazem apresentações sensíveis, números de faturamento e dados estratégicos. Todos os professores assinam termos rigorosos de sigilo (NDA).'
+  },
+  {
+    num: '03',
+    titulo: 'Metodologia Alinhada',
+    desc: 'Embora cada mentor traga sua bagagem de mercado, todos seguem o mesmo protocolo pedagógico da north., garantindo consistência técnica em todas as sessões.'
+  }
+];
+---
+
+<BaseLayout
+  title="Professores e Mentores north. — Vivência de Mercado e Rigor"
+  description="Conheça os professores e mentores da north.: profissionais com formação internacional e experiência corporativa prévia nos setores mais exigentes."
+>
+
+  <!-- Hero Header -->
+  <section class="hero-section section-dark">
+    <div class="hero-content-layer">
+      <div class="hero-main-text">
+        <div class="hero-badge reveal">
+          <span class="badge-icon">✦</span>
+          <span class="mono">CORPO DOCENTE</span>
+        </div>
+
+        <h1 class="hero-title serif reveal">
+          Professores que compreendem o seu mercado porque conhecem o mundo dos negócios<span class="dot-wine">.</span>
+        </h1>
+
+        <p class="hero-lead reveal">
+          A diferença entre um instrutor que ensina gramática de livro e um mentor que prepara você para liderar uma reunião em Chicago é a capacidade de entender o contexto da sua carreira.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a href="#equipe" class="hero-btn-pill hero-btn-primary">
+            <span>Conhecer a Equipe</span>
+          </a>
+          <a href="/contato" class="hero-btn-pill hero-btn-glass">
+            <span>Agendar Diagnóstico</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-footer-cards reveal">
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">Experiência</strong>
+            <span>Setores reais e exigentes</span>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">Rigor</strong>
+            <span>Metodologia consistente</span>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">Confiança</strong>
+            <span>Mentoria executiva</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 01: O Critério de Seleção -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Critério north.</span>
+        <h2 class="section-title serif">Como selecionamos nossos mentores</h2>
+        <p class="section-subtitle">
+          Menos de 4% dos profissionais avaliados entram para o quadro de professores da north. Nossos requisitos vão muito além da fluência:
+        </p>
+      </div>
+
+      <div class="criterios-showcase">
+        <div class="criterios-media reveal">
+          <img
+            src="/img/Imagens/Academic_director_reviewing_conf._20260914102031.webp"
+            alt="Curadoria metodológica e rigor na homologação de mentores corporativos"
+            class="criterios-img"
+            loading="lazy"
+          />
+          <div class="criterios-caption mono">
+            <span>Auditoria & Rigor Pedagógico Contínuo</span>
+          </div>
+        </div>
+
+        <div class="criterios-grid stagger">
+          {diferenciais.map((item) => (
+            <div class="criterio-card reveal">
+              <span class="criterio-num mono wine">{item.num}</span>
+              <h3 class="criterio-title serif">{item.titulo}</h3>
+              <p class="criterio-desc">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 02: Perfis dos Professores -->
+  <section id="equipe" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Nossa Equipe</span>
+        <h2 class="section-title serif">Conheça alguns dos nossos mentores</h2>
+        <p class="section-subtitle">
+          Durante o seu diagnóstico inicial, identificamos qual mentor possui o perfil setorial mais alinhado aos seus objetivos.
+        </p>
+      </div>
+
+      <div class="professores-grid stagger">
+        {professores.map((prof) => (
+          <article class="prof-card reveal">
+            <div class="prof-photo-wrapper">
+              <img
+                src={prof.foto}
+                alt={`Retrato executivo de ${prof.nome}`}
+                class="prof-photo"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="prof-content">
+              <div class="prof-header">
+                <h3 class="prof-nome serif">{prof.nome}</h3>
+                <span class="prof-cargo mono wine">{prof.cargo}</span>
+                <span class="prof-origem mono">{prof.origem}</span>
+              </div>
+
+              <p class="prof-bio">{prof.background}</p>
+
+              <div class="prof-especialidade">
+                <span class="esp-label mono">Área de Foco Principal:</span>
+                <span class="esp-text">{prof.especialidade}</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 03: CTA Diagnóstico -->
+  <section class="section section-dark">
+    <div class="container container-narrow" style="text-align: center;">
+      <div class="reveal">
+        <span class="section-tag light">Próximo Passo</span>
+        <h2 class="section-title serif">Descubra o mentor ideal para o seu perfil</h2>
+        <p class="section-subtitle" style="margin: 0 auto var(--space-6);">
+          Em nossa conversa de 20 minutos, mapeamos seu histórico e direcionamos suas sessões com o profissional mais familiarizado com a sua indústria.
+        </p>
+        
+        <div class="cta-media reveal" style="max-width: 680px; margin: 0 auto var(--space-8); border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--color-border-dark-subtle);">
+          <img
+            src="/img/Imagens/Colleagues_laughing_during_busin._20260914102031.webp"
+            alt="Conversa diagnóstica de 20 minutos entre mentor e aluna executiva"
+            style="width: 100%; height: 320px; object-fit: cover; display: block;"
+            loading="lazy"
+          />
+        </div>
+
+        <a href="/contato" class="btn btn-primary">
+          Agendar Conversa de Diagnóstico
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;
+    background-color: #0c0a0b;
+    background-image:
+      linear-gradient(90deg, rgba(12, 10, 11, 0.98) 0%, rgba(12, 10, 11, 0.85) 24%, rgba(12, 10, 11, 0.52) 42%, rgba(12, 10, 11, 0.18) 64%, rgba(12, 10, 11, 0.08) 100%),
+      url('/img/Imagens/Women_analyzing_operational_comm…_20260914102031.webp');
+    background-size: cover;
+    background-position: 60% center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+
+  .hero-content-layer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    margin-inline: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding-top: calc(80px + 3rem);
+    padding-bottom: 3.5rem;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .hero-content-layer {
+      padding-left: 60px;
+      padding-right: 60px;
+      padding-bottom: 4rem;
+    }
+  }
+
+  .hero-main-text {
+    max-width: 780px;
+    margin-top: auto;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f7f6f5;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 6px 14px;
+    border-radius: 0;
+    margin-bottom: 1.75rem;
+  }
+
+  .badge-icon {
+    color: #d19a9e;
+    font-size: 0.875rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.35rem, 4.2vw, 3.9rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    text-wrap: balance;
+  }
+
+  .hero-lead {
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 2.25rem;
+    max-width: 560px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 12px 18px 12px 22px;
+    border-radius: 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .hero-btn-primary {
+    background-color: var(--color-wine, #722f37);
+    color: #ffffff;
+    border: 1px solid var(--color-wine, #722f37);
+  }
+
+  .hero-btn-primary:hover {
+    background-color: #5b242b;
+    transform: translateY(-1px);
+  }
+
+  .hero-btn-glass {
+    background: rgba(255, 255, 255, 0.06);
+    color: #f7f6f5;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .hero-btn-glass:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .hero-footer-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: auto;
+  }
+
+  .glass-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 12px 18px;
+    border-radius: 0;
+  }
+
+  .glass-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 0;
+    background: rgba(209, 154, 158, 0.15);
+    color: #d19a9e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+  }
+
+  .glass-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .glass-text strong {
+    font-size: 0.875rem;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .glass-text span {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* Critérios Showcase */
+  .criterios-showcase {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 992px) {
+    .criterios-showcase {
+      grid-template-columns: 360px 1fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+  }
+
+  .criterios-media {
+    position: relative;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface-pure);
+  }
+
+  .criterios-img {
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .criterios-caption {
+    padding: var(--space-3) var(--space-4);
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    border-top: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+  }
+
+  .criterios-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .criterio-card {
+    background-color: var(--color-surface-pure);
+    border: 1px solid var(--color-border);
+    padding: var(--space-8);
+    border-radius: var(--radius-sm);
+    transition: border-color var(--motion-base);
+  }
+
+  .criterio-card:hover {
+    border-color: var(--color-wine-border);
+  }
+
+  .criterio-num {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+    display: block;
+  }
+
+  .criterio-title {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .criterio-desc {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--color-text-body);
+  }
+
+  /* Professores Grid */
+  .professores-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 768px) {
+    .professores-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-10);
+    }
+  }
+
+  .prof-card {
+    background-color: var(--color-surface-pure);
+    border: 1px solid var(--color-border);
+    padding: var(--space-8);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border-color var(--motion-base), box-shadow var(--motion-base);
+  }
+
+  @media (min-width: 768px) {
+    .prof-card {
+      padding: var(--space-8);
+    }
+  }
+
+  .prof-card:hover {
+    border-color: var(--color-wine-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .prof-photo-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-6);
+    background-color: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+  }
+
+  .prof-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform var(--motion-slow);
+  }
+
+  .prof-card:hover .prof-photo {
+    transform: scale(1.03);
+  }
+
+  .prof-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-5);
+  }
+
+  .prof-nome {
+    font-size: 1.75rem;
+    color: var(--color-primary);
+  }
+
+  .prof-cargo {
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .prof-origem {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+  }
+
+  .prof-bio {
+    font-size: 0.9375rem;
+    line-height: 1.68;
+    color: var(--color-text-body);
+    margin-bottom: var(--space-8);
+  }
+
+  .prof-especialidade {
+    background-color: var(--color-surface);
+    border-left: 3px solid var(--color-wine);
+    padding: var(--space-4) var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .esp-label {
+    font-size: 0.6875rem;
+    color: var(--color-wine);
+    font-weight: 600;
+  }
+
+  .esp-text {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+</style>

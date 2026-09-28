@@ -1,0 +1,389 @@
+/* ==========================================================================
+   north. — Global Styles, Typography & Core Components
+   ========================================================================== */
+
+@import './tokens.css';
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* --- Local Font Faces: Editor's Note --- */
+@font-face {
+  font-family: "Editor's Note";
+  src: url('/fonts/EditorsNote-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Editor's Note";
+  src: url('/fonts/EditorsNote-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Editor's Note";
+  src: url('/fonts/EditorsNote-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Editor's Note";
+  src: url('/fonts/EditorsNote-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Editor's Note";
+  src: url('/fonts/EditorsNote-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Reset & Baseline --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--color-surface);
+  color: var(--color-text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.68;
+  color: var(--color-text-body);
+  background-color: var(--color-surface);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* --- Typography Helpers --- */
+.serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.sans {
+  font-family: var(--font-sans);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Accent & Signature Wine Helpers */
+.wine {
+  color: var(--color-wine);
+}
+
+.dot-wine {
+  color: var(--color-wine);
+  font-weight: 700;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  color: var(--color-text-main);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+h1.serif, h2.serif {
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin-bottom: var(--space-4);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--motion-fast) var(--ease-standard);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Structural Containers --- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+}
+
+.container-narrow {
+  max-width: var(--container-narrow);
+}
+
+.container-editorial {
+  max-width: var(--container-editorial);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--space-10);
+    padding-right: var(--space-10);
+  }
+}
+
+/* --- Section Variants --- */
+.section {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .section {
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+}
+
+.section-light {
+  background-color: var(--color-surface);
+  color: var(--color-text-body);
+}
+
+.section-light h1, .section-light h2, .section-light h3 {
+  color: var(--color-primary);
+}
+
+.section-alt {
+  .section-alt {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-body);
+}
+}
+
+.section-dark {
+  background-color: var(--color-primary);
+  color: var(--color-text-light-body);
+}
+
+.section-dark h1, .section-dark h2, .section-dark h3 {
+  color: var(--color-text-light);
+}
+
+.section-dark-deep {
+  background-color: var(--color-surface-dark);
+  color: var(--color-text-light-body);
+}
+
+/* Section Header Component */
+.section-header {
+  margin-bottom: var(--space-16);
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-wine);
+  margin-bottom: var(--space-4);
+  font-weight: 600;
+}
+
+.section-tag.light {
+  color: var(--color-wine-light);
+}
+
+.section-title {
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1.1;
+  margin-bottom: var(--space-5);
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  max-width: 640px;
+}
+
+.section-dark .section-subtitle {
+  color: var(--color-text-light-muted);
+}
+
+/* --- Buttons & Interactive Elements --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: 14px 28px;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--motion-base) var(--ease-standard);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-wine);
+  color: #FFFFFF;
+  border-color: var(--color-wine);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-wine-light);
+  border-color: var(--color-wine-light);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-surface-alt);
+  border-color: var(--color-primary);
+}
+
+.section-dark .btn-secondary {
+  color: var(--color-text-light);
+  border-color: var(--color-border-dark-subtle);
+}
+
+.section-dark .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--color-text-light);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--color-primary);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-wine);
+  border-radius: 0;
+}
+
+.btn-ghost:hover {
+  color: var(--color-wine);
+}
+
+/* --- Dividers --- */
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border);
+  border: none;
+  margin: var(--space-12) 0;
+}
+
+.section-dark .divider {
+  background-color: var(--color-border-dark-subtle);
+}
+
+/* --- Reveal & Animation Utility Classes --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity var(--motion-reveal) var(--ease-reveal),
+              transform var(--motion-reveal) var(--ease-reveal);
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay children */
+.stagger > *:nth-child(1) { transition-delay: 50ms; }
+.stagger > *:nth-child(2) { transition-delay: 150ms; }
+.stagger > *:nth-child(3) { transition-delay: 250ms; }
+.stagger > *:nth-child(4) { transition-delay: 350ms; }
+.stagger > *:nth-child(5) { transition-delay: 450ms; }
+
+/* Progress bar */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--color-wine);
+  width: 0%;
+  z-index: 9999;
+  transition: width 80ms linear;
+}
+
+/* --- Editorial Image Shared Components --- */
+.section-image {
+  padding: 0;
+  position: relative;
+  background-color: var(--color-surface);
+}
+
+.image-wrapper {
+  width: 100%;
+  max-height: 560px;
+  overflow: hidden;
+  position: relative;
+}
+
+.editorial-img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  max-height: 560px;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+}
+
+.image-caption {
+  padding: var(--space-4) 0;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+  letter-spacing: 0.04em;
+}

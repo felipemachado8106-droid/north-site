@@ -1,0 +1,63 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PortfolioModal from '../components/PortfolioModal.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'north. — Escola de Inglês para Executivos & Profissionais',
+  description = 'A north. prepara adultos e profissionais para dominar o inglês em reuniões, negociações e apresentações reais. Metodologia prática individualizada, sem turmas infantis.'
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Open Graph / Meta Compartilhamento -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="theme-color" content="#1C1917" />
+
+    <!-- Preload das Fontes Editor's Note -->
+    <link rel="preload" href="/fonts/EditorsNote-Regular.otf" as="font" type="font/otf" crossorigin />
+    <link rel="preload" href="/fonts/EditorsNote-Medium.otf" as="font" type="font/otf" crossorigin />
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%231C1917'/><circle cx='68' cy='62' r='10' fill='%23880C24'/></svg>" />
+  </head>
+  <body>
+    <!-- Top Reading Indicator -->
+    <div id="progress-bar" aria-hidden="true"></div>
+
+    <!-- Global Header -->
+    <Header currentPath={currentPath} />
+
+    <!-- Main Content Slot -->
+    <main id="main-content" style="padding-top: var(--header-height);">
+      <slot />
+    </main>
+
+    <!-- Global Footer -->
+    <Footer />
+
+    <!-- Modal de Portfólio MachadoON -->
+    <PortfolioModal />
+
+    <!-- Client Script -->
+    <script src="../scripts/app.js"></script>
+  </body>
+</html>

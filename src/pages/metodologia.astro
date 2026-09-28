@@ -1,0 +1,642 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const etapas = [
+  {
+    passo: '01',
+    nome: 'Diagnóstico Situacional',
+    tempo: 'Primeira semana',
+    resumo: 'Análise minuciosa da sua rotina profissional.',
+    detalhes: 'Não fazemos um teste de nivelamento genérico com gramática descontextualizada. Mapeamos com você as reuniões onde você trava, os tipos de e-mail que demandam mais tempo de rascunho, os relatórios em inglês que você precisa ler e as apresentações mais críticas do seu calendário.',
+    entregavel: 'Relatório de Gaps de Comunicação e Mapa de Prioridades Imediatas.',
+    imagem: '/img/Imagens/Women_analyzing_operational_comm._20260914102031.webp',
+    alt: 'Mentora sênior e executiva mapeando os gargalos e prioridades da rotina profissional'
+  },
+  {
+    passo: '02',
+    nome: 'Plano Individual de Competência',
+    tempo: 'Semana 2',
+    resumo: 'Construção da trilha técnica sob medida.',
+    detalhes: 'Definimos as competências de fala e escrita necessárias para os próximos 3 e 6 meses. O plano estabelece metas funcionais concretas: conduzir a weekly de engenharia, responder a objeções em rodadas de captação ou negociar termos de entrega com a matriz na Europa.',
+    entregavel: 'Plano Pedagógico Semestral com metas práticas mensuráveis.',
+    imagem: '/img/Imagens/Men_reviewing_strategic_roadmap_20260914102031.webp',
+    alt: 'Estrategista pedagógico e executivo estruturando o roadmap semestral de competências'
+  },
+  {
+    passo: '03',
+    nome: 'Sessões Práticas Individuais (1:1)',
+    tempo: 'Contínuo · 2x por semana',
+    resumo: 'Treinamento intensivo de fala e raciocínio direto.',
+    detalhes: 'Sessões de 45 ou 60 minutos conduzidas por professores com perfil executivo. Não há repetição mecânica de diálogos prontos. Realizamos simulações de reuniões reais, debates sobre as decisões da semana e ensaios de sustentação oral.',
+    entregavel: 'Prática ativa com foco em reduzir a latência de tradução mental.',
+    imagem: '/img/Imagens/Woman_arguing_in_board_simulation_20260914102031.webp',
+    alt: 'Simulação de alta tensão executiva em sessão individual de oratória e argumentação'
+  },
+  {
+    passo: '04',
+    nome: 'Uso de Materiais da sua Vida Real',
+    tempo: 'Sob demanda',
+    resumo: 'Trabalho sobre os seus próprios documentos e desafios.',
+    detalhes: 'Você pode trazer seus slides de apresentação, drafts de e-mails sensíveis, minutas contratuais ou pautas de reuniões que acontecerão no dia seguinte. Trabalhamos os termos exatos e o tom de formalidade adequado para cada audiência.',
+    entregavel: 'Apresentações e mensagens revisadas prontas para uso imediato no trabalho.',
+    imagem: '/img/Imagens/Colleagues_reviewing_document_at._20260914102031.webp',
+    alt: 'Revisão estratégica e confidencial de minutas contratuais e apresentações sob sigilo'
+  },
+  {
+    passo: '05',
+    nome: 'Correção Cirúrgica & Feedback',
+    tempo: 'Em cada sessão',
+    resumo: 'Feedback imediato sem interromper seu raciocínio.',
+    detalhes: 'O professor anota padrões recorrentes de erro gramatical, pronúncias ambíguas e escolhas de palavras pouco naturais. As correções são feitas no final dos blocos de fala, garantindo que você ganhe fluidez sem perder a confiança.',
+    entregavel: 'Guia quinzenal de vícios de linguagem e expressões alternativas refinadas.',
+    imagem: '/img/Imagens/Mentor_delivering_feedback_to_ex._20260914102031.webp',
+    alt: 'Feedback pedagógico de alta precisão ao final do bloco de fala sem interromper raciocínio'
+  },
+  {
+    passo: '06',
+    nome: 'Métricas de Evolução e Autonomia',
+    tempo: 'Mensal',
+    resumo: 'Acompanhamento do que mudou no seu trabalho.',
+    detalhes: 'Avaliamos a evolução com base no que realmente importa: tempo de hesitação antes da fala, participação ativa nas calls globais da sua empresa e segurança ao responder perguntas não planejadas.',
+    entregavel: 'Dashboard executivo mensal de evolução em comunicação.',
+    imagem: '/img/Imagens/Woman_addressing_audience_in_boa._20260914102031.webp',
+    alt: 'Líder executiva conduzindo deliberação internacional com autonomia e soberania'
+  }
+];
+---
+
+<BaseLayout
+  title="Metodologia north. — Da Avaliação ao Domínio em Inglês"
+  description="Conheça o processo de 6 etapas da north.: diagnóstico da sua rotina, plano sob medida, materiais reais da sua empresa e sessões práticas 1:1."
+>
+
+  <!-- Hero Section -->
+  <section class="hero-section section-dark">
+    <div class="hero-content-layer">
+      <div class="hero-main-text">
+        <div class="hero-badge reveal">
+          <span class="badge-icon">✦</span>
+          <span class="mono">O MÉTODO</span>
+        </div>
+
+        <h1 class="hero-title serif reveal">
+          Da avaliação inicial ao domínio no ambiente corporativo<span class="dot-wine">.</span>
+        </h1>
+
+        <p class="hero-lead reveal">
+          Cada etapa da metodologia north. foi desenhada para reduzir hesitação, melhorar a clareza e acelerar a confiança de executivos e líderes em reuniões, apresentações e negociações em inglês.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a href="#etapas" class="hero-btn-pill hero-btn-primary">
+            <span>Ver as Etapas</span>
+          </a>
+          <a href="/contato" class="hero-btn-pill hero-btn-glass">
+            <span>Agendar Diagnóstico</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-footer-cards reveal">
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">Diagnóstico</strong>
+            <span>Mapeamos sua rotina e seus gargalos reais</span>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">Plano</strong>
+            <span>Estratégia individual com foco em performance</span>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="glass-icon">✓</div>
+          <div class="glass-text">
+            <strong class="mono">Prática</strong>
+            <span>Reuniões, negociações e apresentações em inglês</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 01: As 6 Etapas -->
+  <section id="etapas" class="section section-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Passo a Passo</span>
+        <h2 class="section-title serif">Como o trabalho se desenvolve na prática</h2>
+        <p class="section-subtitle">
+          Um método linear, transparente e livre de promessas mágicas de fluência sem dedicação.
+        </p>
+      </div>
+
+      <div class="etapas-timeline">
+        {etapas.map((etapa) => (
+          <article class="etapa-card reveal">
+            <div class="etapa-badge-col">
+              <span class="etapa-num mono wine">{etapa.passo}</span>
+              <span class="etapa-time mono">{etapa.tempo}</span>
+            </div>
+
+            <div class="etapa-content">
+              <h3 class="etapa-title serif">{etapa.nome}</h3>
+              <p class="etapa-summary"><strong>{etapa.resumo}</strong></p>
+              <p class="etapa-body">{etapa.detalhes}</p>
+              
+              <div class="etapa-deliverable">
+                <span class="deliverable-label mono">Entregável Concreto:</span>
+                <span class="deliverable-text">{etapa.entregavel}</span>
+              </div>
+            </div>
+
+            <div class="etapa-media">
+              <img
+                src={etapa.imagem}
+                alt={etapa.alt}
+                class="etapa-img"
+                loading="lazy"
+              />
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 02: Rotina de Sessão -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Dinâmica</span>
+        <h2 class="section-title serif">Como são os 50 minutos de uma sessão típica</h2>
+      </div>
+
+      <div class="rotina-grid stagger">
+        <div class="rotina-block reveal">
+          <span class="rotina-min mono wine">00 – 10 min</span>
+          <h3 class="rotina-title serif">Aquecimento & Pauta da Semana</h3>
+          <p class="rotina-desc">
+            Discussão inicial sobre o principal acontecimento do trabalho do aluno nos últimos dias. Alinhamento das reuniões agendadas para a semana e desafios iminentes.
+          </p>
+        </div>
+
+        <div class="rotina-block reveal">
+          <span class="rotina-min mono wine">10 – 35 min</span>
+          <h3 class="rotina-title serif">Simulação Ativa & Argumentação</h3>
+          <p class="rotina-desc">
+            Prática direta com casos reais do setor: defesa de projeto, negociação de escopo com matriz ou simulação de perguntas desconfortáveis de conselho.
+          </p>
+        </div>
+
+        <div class="rotina-block reveal">
+          <span class="rotina-min mono wine">35 – 50 min</span>
+          <h3 class="rotina-title serif">Ajustes & Consolidação</h3>
+          <p class="rotina-desc">
+            Revisão dos vocábulos utilizados, correção de construções truncadas e registro de termos-chave para fixação no cotidiano profissional.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 03: Agendamento de Diagnóstico -->
+  <section class="section section-dark metodologia-form-section">
+    <div class="container container-narrow">
+      <div class="section-header reveal" style="text-align: center;">
+        <span class="section-tag light">Início do Ciclo</span>
+        <h2 class="section-title serif">Comece pelo diagnóstico da sua rotina</h2>
+        <p class="section-subtitle" style="margin: 0 auto; color: rgba(255, 255, 255, 0.72);">
+          Antes de qualquer compromisso de matrícula, você conversa com nossa equipe para mapear se a metodologia north. é a solução adequada para o seu momento de carreira.
+        </p>
+      </div>
+
+      <div class="reveal metodologia-form-shell">
+        <ContactForm title="Agendar Conversa Diagnóstica" />
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;
+    background-color: #0c0a0b;
+    background-image:
+      linear-gradient(90deg, rgba(12, 10, 11, 0.98) 0%, rgba(12, 10, 11, 0.85) 24%, rgba(12, 10, 11, 0.52) 42%, rgba(12, 10, 11, 0.18) 64%, rgba(12, 10, 11, 0.08) 100%),
+      url('/img/Imagens/Executive_speaking_at_board_table_20260914102032.webp');
+    background-size: cover;
+    background-position: 60% center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    filter: saturate(1.05) contrast(1.04);
+  }
+
+  .hero-content-layer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    margin-inline: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding-top: calc(80px + 3rem);
+    padding-bottom: 3.5rem;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .hero-content-layer {
+      padding-left: 60px;
+      padding-right: 60px;
+      padding-bottom: 4rem;
+    }
+  }
+
+  .hero-main-text {
+    max-width: 780px;
+    margin-top: auto;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f7f6f5;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 6px 14px;
+    border-radius: 0;
+    margin-bottom: 1.75rem;
+  }
+
+  .badge-icon {
+    color: #d19a9e;
+    font-size: 0.875rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.35rem, 4.2vw, 3.9rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    text-wrap: balance;
+  }
+
+  .hero-lead {
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 2.25rem;
+    max-width: 560px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 12px 18px 12px 22px;
+    border-radius: 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .hero-btn-primary {
+    background-color: var(--color-wine, #722f37);
+    color: #ffffff;
+    border: 1px solid var(--color-wine, #722f37);
+  }
+
+  .hero-btn-primary:hover {
+    background-color: #5b242b;
+    transform: translateY(-1px);
+  }
+
+  .hero-btn-glass {
+    background: rgba(255, 255, 255, 0.06);
+    color: #f7f6f5;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .hero-btn-glass:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .hero-footer-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: auto;
+  }
+
+  .glass-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 12px 18px;
+    border-radius: 0;
+  }
+
+  .glass-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 0;
+    background: rgba(209, 154, 158, 0.15);
+    color: #d19a9e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+  }
+
+  .glass-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .glass-text strong {
+    font-size: 0.875rem;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .glass-text span {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .metodologia-form-section {
+    background: rgba(11, 10, 10, 0.98);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .metodologia-form-shell .form-card {
+    background: rgba(20, 17, 18, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+  }
+
+  .metodologia-form-shell .form-title,
+  .metodologia-form-shell .success-title {
+    color: #f4f2f1;
+  }
+
+  .metodologia-form-shell .form-subtitle,
+  .metodologia-form-shell .form-disclaimer,
+  .metodologia-form-shell .success-desc,
+  .metodologia-form-shell .form-label {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .metodologia-form-shell .form-input {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #f7f6f5;
+  }
+
+  .metodologia-form-shell .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.42);
+  }
+
+  .metodologia-form-shell .form-input:focus {
+    background-color: rgba(255, 255, 255, 0.065);
+    border-color: rgba(209, 154, 158, 0.8);
+    box-shadow: 0 0 0 3px rgba(209, 154, 158, 0.2);
+  }
+
+  .metodologia-form-shell .form-input.input-error {
+    background-color: rgba(80, 30, 33, 0.4);
+    border-color: rgba(230, 125, 130, 0.9);
+  }
+
+  .metodologia-form-shell .form-error {
+    color: #f3b5b9;
+  }
+
+  .metodologia-form-shell .form-success-message {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Timeline de Etapas */
+  .etapas-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+    position: relative;
+  }
+
+  .etapa-card {
+    background-color: var(--color-surface-pure);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-8);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    transition: border-color var(--motion-base), box-shadow var(--motion-base);
+  }
+
+  .etapa-card:hover {
+    border-color: var(--color-wine-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  @media (min-width: 768px) {
+    .etapa-card {
+      grid-template-columns: 110px 1fr;
+      gap: var(--space-8);
+      padding: var(--space-8) var(--space-10);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .etapa-card {
+      grid-template-columns: 110px 1fr 300px;
+      gap: var(--space-8);
+      align-items: center;
+    }
+  }
+
+  .etapa-media {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface-alt);
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (max-width: 1023px) {
+    .etapa-media {
+      aspect-ratio: 16 / 9;
+      max-height: 280px;
+      grid-column: 1 / -1;
+    }
+  }
+
+  .etapa-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--motion-slow);
+  }
+
+  .etapa-card:hover .etapa-img {
+    transform: scale(1.03);
+  }
+
+  .etapa-badge-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-4);
+  }
+
+  @media (min-width: 768px) {
+    .etapa-badge-col {
+      border-bottom: none;
+      border-right: 1px solid var(--color-border);
+      padding-bottom: 0;
+      padding-right: var(--space-4);
+    }
+  }
+
+  .etapa-num {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .etapa-time {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+  }
+
+  .etapa-title {
+    font-size: 1.625rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .etapa-summary {
+    font-size: 1rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .etapa-body {
+    font-size: 0.9375rem;
+    line-height: 1.68;
+    color: var(--color-text-body);
+    margin-bottom: var(--space-6);
+  }
+
+  .etapa-deliverable {
+    background-color: var(--color-surface);
+    border-left: 3px solid var(--color-wine);
+    padding: var(--space-4) var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .deliverable-label {
+    font-size: 0.6875rem;
+    color: var(--color-wine);
+    font-weight: 600;
+  }
+
+  .deliverable-text {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  /* Rotina de Sessão */
+  .rotina-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 992px) {
+    .rotina-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .rotina-block {
+    background-color: var(--color-surface-pure);
+    border: 1px solid var(--color-border);
+    padding: var(--space-8);
+    border-radius: var(--radius-sm);
+  }
+
+  .rotina-min {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+    display: block;
+  }
+
+  .rotina-title {
+    font-size: 1.375rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .rotina-desc {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-text-body);
+  }
+</style>

@@ -1,0 +1,280 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const navItems = [
+  { label: 'Sobre', href: '/sobre' },
+  { label: 'Metodologia', href: '/metodologia' },
+  { label: 'Cursos', href: '/cursos' },
+  { label: 'Empresas', href: '/empresas' },
+  { label: 'Professores', href: '/professores' },
+  { label: 'Contato', href: '/contato' },
+];
+---
+
+<nav id="main-nav" class="nav-header" aria-label="Navegação principal">
+  <div class="container nav-container">
+    <a href="/" class="nav-logo" aria-label="north. Home">
+      <span class="logo-text">north<span class="dot-wine">.</span></span>
+    </a>
+
+    <div class="nav-links">
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+        return (
+          <a href={item.href} class={`nav-link ${isActive ? 'active' : ''}`}>
+            {item.label}
+          </a>
+        );
+      })}
+    </div>
+
+    <div class="nav-actions">
+      <a href="/contato" class="btn btn-primary nav-cta">
+        Diagnóstico Profissional
+      </a>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-header">
+      <a href="/" class="nav-logo">
+        <span class="logo-text">north<span class="dot-wine">.</span></span>
+      </a>
+      <button id="menu-close" class="menu-close" aria-label="Fechar menu">
+        <span>×</span>
+      </button>
+    </div>
+
+    <div class="mobile-links-list">
+      {navItems.map((item, index) => {
+        const isActive = currentPath === item.href;
+        return (
+          <a href={item.href} class={`mobile-link serif ${isActive ? 'active' : ''}`} style={`--i: ${index}`}>
+            {item.label}
+          </a>
+        );
+      })}
+    </div>
+
+    
+
+<style>
+  .nav-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    background-color: rgba(244, 239, 231, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(28, 25, 23, 0.06);
+    z-index: 1000;
+    transition: all var(--motion-base) var(--ease-standard);
+  }
+
+  .nav-header.nav-scrolled {
+    height: 70px;
+    background-color: rgba(244, 239, 231, 0.98);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .nav-logo {
+    display: inline-flex;
+    align-items: baseline;
+    text-decoration: none;
+  }
+
+  .logo-text {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.4375rem;
+    letter-spacing: -0.04em;
+    color: var(--color-primary);
+  }
+
+  .nav-links {
+    display: none;
+    align-items: center;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 992px) {
+    .nav-links {
+      display: flex;
+    }
+  }
+
+  .nav-link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-body);
+    position: relative;
+    padding: 6px 0;
+    transition: color var(--motion-fast) var(--ease-standard);
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+  }
+
+  .nav-link.active {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-wine);
+    border-radius: 1px;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .nav-cta {
+    display: none;
+    padding: 10px 22px;
+    font-size: 0.875rem;
+  }
+
+  @media (min-width: 768px) {
+    .nav-cta {
+      display: inline-flex;
+    }
+  }
+
+  /* Hamburger Toggle */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1010;
+  }
+
+  @media (min-width: 992px) {
+    .menu-toggle {
+      display: none;
+    }
+  }
+
+  .toggle-bar {
+    width: 24px;
+    height: 1.5px;
+    background-color: var(--color-primary);
+    transition: transform var(--motion-base) var(--ease-standard);
+  }
+
+  /* Mobile Overlay */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    z-index: 2000;
+    transform: translateY(-100%);
+    transition: transform var(--motion-smooth) var(--ease-reveal);
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-8);
+  }
+
+  .mobile-menu.open {
+    transform: translateY(0);
+  }
+
+  .mobile-menu-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-12);
+  }
+
+  .mobile-menu-header .logo-text {
+    color: var(--color-text-light);
+  }
+
+  .menu-close {
+    background: transparent;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 2.25rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+  }
+
+  .mobile-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .mobile-link {
+    font-size: 2rem;
+    color: var(--color-text-light-body);
+    text-decoration: none;
+    transition: color var(--motion-fast);
+  }
+
+  .mobile-link:hover, .mobile-link.active {
+    color: var(--color-text-light);
+  }
+
+  .mobile-link.active {
+    color: var(--color-wine-light);
+  }
+
+  .mobile-menu-footer {
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border-dark-subtle);
+  }
+
+  .mobile-tagline {
+    font-size: 0.875rem;
+    color: var(--color-text-light-muted);
+    margin-bottom: var(--space-6);
+  }
+</style>
